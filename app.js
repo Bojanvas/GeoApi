@@ -4,18 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
+var bodyParser = require('body-parser')
 require("dotenv").config();
 
 mongoose.connect("mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + process.env.DBHOST, function() {
   console.log('db-connected..');
 });
 
-var indexRouter = require('./api/routes/api/index');
+var indexRouter = require('./routes/api/index');
 var usersRouter = require('./routes/api/users');
 var questionsRouter = require('./routes/api/questions');
 var resultsRouter = require('./routes/api/results');
-var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 
 var app = express();
 
@@ -33,6 +34,12 @@ app.use('/dashboard', indexRouter);
 app.use('/users', usersRouter);
 app.use('/questions', questionsRouter);
 app.use('/results', resultsRouter);
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+// parse application/json
+app.use(bodyParser.json());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+        <h1 stlye='text-align:text;'>Questions</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                        <h4>Add new question</h4>
+                        <form id='add-country' enctype="multipart/form-data" method="post" name="fileinfo">
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label for="country_name">Name</label>
+                                    <input type="text" name='country_name' class="form-control" id="country_name" aria-describedby="Country" placeholder="Country name">
+                                </div>
+                                <div class="col form-group">
+                                    <label for="country_capital">Capital</label>
+                                    <input type="text" name='capital' class="form-control" id="country_capital" aria-describedby="Capital" placeholder="Country capital">
+                                </div>
+                                </div>
+                                <div class="form-row">
+                                <div class="col form-group">
+                                    <label class="file-input-flag" for="inputflag">Add img for flag</label>
+                                    <input type="file" id='fileinfo' class="file-input-flag form-control" name='flag' id="inputflag"
+                                        aria-describedby="flag">
+                                </div>
+                                <div class="col form-group">
+                                    <label class="file-input-country" for="inputcountry">Add img for country</label>
+                                    <input type="file" class="file-input-country form-control" name='country_img' id="inputcountry"
+                                        aria-describedby="country">
+                                </div>
+                            </div>    
+                            <input type='submit' id='add-new-country-js' class="btn btn-primary"></button>
+                        </form>
+                </div>
+            </div>
+        </div>
+  </body>
+  <script src="/javascripts/country.js"></script>
+</html>
