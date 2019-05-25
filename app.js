@@ -10,10 +10,10 @@ mongoose.connect("mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + 
   console.log('db-connected..');
 });
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var questionsRouter = require('./routes/questions');
-var resultsRouter = require('./routes/results');
+var indexRouter = require('./api/routes/api/index');
+var usersRouter = require('./routes/api/users');
+var questionsRouter = require('./routes/api/questions');
+var resultsRouter = require('./routes/api/results');
 
 var app = express();
 
@@ -29,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/questions', questionsRouter);
+app.use('/results', resultsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
