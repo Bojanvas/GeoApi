@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 /* POST question */
 router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_img', maxCount: 1 }]), function(req, res, next) {
-  
+  console.log(req.body);
   const country = new Country({
     name: req.body.country_name,
     capital: req.body.capital,

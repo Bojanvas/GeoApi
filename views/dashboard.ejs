@@ -11,36 +11,48 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-        <h1 stlye='text-align:text;'>Questions</h1>
+        <h1 stlye='text-align:text;'>Dashboard</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                        <h4>Add new question</h4>
-                        <form id='add-country' enctype="multipart/form-data" method="post" name="fileinfo">
-                            <div class="form-row">
-                                <div class="col form-group">
-                                    <label for="country_name">Name</label>
-                                    <input type="text" name='country_name' class="form-control" id="country_name" aria-describedby="Country" placeholder="Country name">
-                                </div>
-                                <div class="col form-group">
-                                    <label for="country_capital">Capital</label>
-                                    <input type="text" name='capital' class="form-control" id="country_capital" aria-describedby="Capital" placeholder="Country capital">
-                                </div>
-                                </div>
-                                <div class="form-row">
-                                <div class="col form-group">
-                                    <label class="file-input-flag" for="inputflag">Add img for flag</label>
-                                    <input type="file" id='fileinfo' class="file-input-flag form-control" name='flag' id="inputflag"
-                                        aria-describedby="flag">
-                                </div>
-                                <div class="col form-group">
-                                    <label class="file-input-country" for="inputcountry">Add img for country</label>
-                                    <input type="file" class="file-input-country form-control" name='country_img' id="inputcountry"
+                    <h4>Add new question</h4>
+                    <form id='add-country' enctype="multipart/form-data" method="post" name="fileinfo">
+                        <div class="form-row">
+                            <div class="col-6 form-group">
+                                <label for="country_name">Name</label>
+                                <input type="text" name='country_name' class="form-control" id="country_name" aria-describedby="Country" placeholder="Country name">
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="country_capital">Capital</label>
+                                <input type="text" name='capital' class="form-control" id="country_capital" aria-describedby="Capital" placeholder="Country capital">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label class="file-input-flag" for="inputflag">Add img for flag</label>
+                                <input type="file" id='fileinfo' class="file-input-flag" name='flag' id="inputflag"
+                                    aria-describedby="flag">
+                            </div>
+                            <div class="col form-group">
+                                <label class="file-input-country" for="inputcountry">Add img for country</label>
+                                <input type="file" class="file-input-country" name='country_img' id="inputcountry"
                                         aria-describedby="country">
-                                </div>
-                            </div>    
-                            <input type='submit' id='add-new-country-js' class="btn btn-primary"></button>
-                        </form>
+                            </div>
+                            <div class="col form-group">
+                                <label class="file-input-country" for="inputcountry">Points</label>
+                                <select id="inputState" name="points" class="form-control">
+                                    <option selected>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                        </div>    
+                        <input type='submit' id='add-new-country-js' class="btn btn-primary"></button>
+                    </form>
+                    <hr>
                 </div>
             </div>
         </div>
