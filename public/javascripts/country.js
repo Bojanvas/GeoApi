@@ -17,6 +17,7 @@ function addCountryAjax(formData){
         processData: false,
         success: function (response) {
           console.log(response);
+          alertMessage('Country Added', 'alert-success', 3000);
         }
     });
 }
@@ -30,6 +31,7 @@ function deleteCountry(name){
         },
         success: function (response){
             console.log(response);
+            alertMessage('Country Deleted', 'alert-warning', 3000);
         }
     });
 }
@@ -78,6 +80,13 @@ function addAllCountriesToList(countries){
         imgCountryImg.height = '20';
         imgCountryImg.width = '20';
 
+        const tdDel = document.createElement('td');
+        const aDel = document.createElement('a');
+        aDel.href = '';
+        aDel.style = 'color: inherit'
+        const imgDel = document.createElement('i');
+        imgDel.classList = "far fa-times-circle fa-2x";
+
         tbody.appendChild(tr);
         tbody.appendChild(th);
         tbody.appendChild(tdName);
@@ -89,6 +98,10 @@ function addAllCountriesToList(countries){
 
         tdCountryImg.appendChild(imgCountryImg);
         tbody.appendChild(tdCountryImg);
+
+        aDel.appendChild(imgDel);
+        tdDel.appendChild(aDel);
+        tbody.appendChild(tdDel);
     }
 }
 
