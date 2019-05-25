@@ -21,6 +21,19 @@ function addCountryAjax(formData){
     });
 }
 
+function deleteCountry(name){
+    $.ajax({
+        url: '/questions',
+        type: 'DELETE',
+        headers:{
+            'name': name,
+        },
+        success: function (response){
+            console.log(response);
+        }
+    });
+}
+
 function getAllCountries(){
     $.ajax({
         url: '/questions',
@@ -77,4 +90,17 @@ function addAllCountriesToList(countries){
         tdCountryImg.appendChild(imgCountryImg);
         tbody.appendChild(tdCountryImg);
     }
+}
+
+/* Creates new alert message */
+function alertMessage(message, type, timeInMills){
+    const alert = document.querySelector('.alert');
+    alert.classList.add(type);
+    alert.textContent = message;
+    alert.style.display='block';
+    setTimeout(() => { 
+        alert.classList.remove(type);
+        alert.textContent = '';
+        alert.style.display='none';
+    }, timeInMills);
 }

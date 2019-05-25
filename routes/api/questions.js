@@ -6,14 +6,14 @@ var upload = multer({ dest: 'uploads/countries/' })
 var router = express.Router();
 
 /* GET all countries. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   Country.find({}, (err, countries) => {
     if(err) return console.log(err);
     res.status(200).json(countries);
   });
 });
 
-/* POST country*/
+/* POST country */
 router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_img', maxCount: 1 }]), function(req, res, next) {
   const country = new Country({
     name: req.body.country_name,
@@ -26,6 +26,16 @@ router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_
   country.save((err, country) => {
     if (err) return console.error(err);
     res.status(200).json(country);
+  });
+});
+
+/* DELETE country by id */
+router.delete('/', (req, res, next) => {
+  Country.deleteOne({name: req.headers['name']}, (err) => {
+    if(err) return console.log(err);
+    res.status(200).json({
+      message: "Country Deleted"
+    });
   });
 });
 
