@@ -5,14 +5,16 @@ var upload = multer({ dest: 'uploads/countries/' })
 
 var router = express.Router();
 
-/* GET all users. */
+/* GET all countries. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  Country.find({}, (err, countries) => {
+    if(err) return console.log(err);
+    res.status(200).json(countries);
+  });
 });
 
-/* POST question */
+/* POST country*/
 router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_img', maxCount: 1 }]), function(req, res, next) {
-  console.log(req.body);
   const country = new Country({
     name: req.body.country_name,
     capital: req.body.capital,
@@ -23,7 +25,7 @@ router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_
 
   country.save((err, country) => {
     if (err) return console.error(err);
-   res.status(200).json(country);
+    res.status(200).json(country);
   });
 });
 
