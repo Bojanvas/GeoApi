@@ -14,6 +14,8 @@ var indexRouter = require('./api/routes/api/index');
 var usersRouter = require('./routes/api/users');
 var questionsRouter = require('./routes/api/questions');
 var resultsRouter = require('./routes/api/results');
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 var app = express();
 
@@ -27,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/dashboard', indexRouter);
 app.use('/users', usersRouter);
 app.use('/questions', questionsRouter);
 app.use('/results', resultsRouter);
