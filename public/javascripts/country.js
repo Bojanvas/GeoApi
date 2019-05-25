@@ -13,7 +13,8 @@ function addCountryAjax(formData){
         url: '/questions',
         type: 'POST',
         data: formData,
-        enctype: 'multipart/form-data',
+        cache: false,
+        contentType: false,
         processData: false,
         success: function (response) {
           console.log(response);

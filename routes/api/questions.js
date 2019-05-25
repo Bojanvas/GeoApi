@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET users listing. */
-router.post('/', upload.single('flag'), function(req, res, next) {
+router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_img', maxCount: 1 }]), function(req, res, next) {
+  console.log(req.files);
   // Country.create({
   //   name: req.body.name,
   //   capital: req.body.capital,
@@ -21,6 +22,7 @@ router.post('/', upload.single('flag'), function(req, res, next) {
   // }).then(country => {
   //   res.status(200).json(country);
   // }).catch(err => console.log(err));
+
 
 });
 
