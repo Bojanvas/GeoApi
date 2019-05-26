@@ -16,13 +16,14 @@ function addCountryAjax(formData){
         contentType: false,
         processData: false,
         success: function (response) {
-          console.log(response);
-          addAllCountriesToList(response);
-          alertMessage('Country Added', 'alert-success', 3000);
+            console.log(response);
+            //Dismiss modal
+            $('#add-country-modal').modal('toggle');
+            alertMessage('Country added', 'alert-success', 3000);
         },
         error: function (err){
             console.log(err);
-            alertMessage('Country Not Added', 'alert-warning', 3000);
+            alertMessage('Country not added', 'alert-warning', 3000);
         }
     });
 }
@@ -36,7 +37,7 @@ function deleteCountry(name){
         },
         success: function (response){
             console.log(response);
-            alertMessage('Country Deleted', 'alert-warning', 3000);
+            alertMessage('Country deleted', 'alert-warning', 3000);
         }
     });
 }
@@ -75,7 +76,7 @@ function addAllCountriesToList(countries){
 
         const tdFlag = document.createElement('td');
         const imgFlag = document.createElement('img');
-        imgFlag.src = 'home/aleksandar/web/GeoApi/' + countries[i].flag;
+        imgFlag.src = countries[i].flag;
         imgFlag.height = '20';
         imgFlag.width = '20';
 
