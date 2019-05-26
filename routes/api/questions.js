@@ -1,7 +1,7 @@
 var express = require('express');
 const Country = require('../../models/country');
 var multer  = require('multer')
-var upload = multer({ dest: 'public/uploads/countries/' })
+var upload = multer({ dest: 'public/uploads/countries/' });
 
 var router = express.Router();
 

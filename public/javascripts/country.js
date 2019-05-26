@@ -88,13 +88,13 @@ function addAllCountriesToList(countries){
 
         const tdFlag = document.createElement('td');
         const imgFlag = document.createElement('img');
-        imgFlag.src = countries[i].flag;
+        imgFlag.src = countries[i].flag.replace("public", "");
         imgFlag.height = '20';
         imgFlag.width = '20';
 
         const tdCountryImg = document.createElement('td');
         const imgCountryImg = document.createElement('img');
-        imgCountryImg.src = countries[i].country_img;
+        imgCountryImg.src = countries[i].country_img.replace("public", "");
         imgCountryImg.height = '20';
         imgCountryImg.width = '20';
 
