@@ -18,7 +18,7 @@ router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_
   const country = new Country({
     name: req.body.country_name,
     capital: req.body.capital,
-    points: 5,
+    points: req.body.points,
     flag: req.files.flag[0].path,
     country_img: req.files.country_img[0].path
   });
@@ -29,7 +29,7 @@ router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_
   });
 });
 
-/* DELETE country by id */
+/* DELETE country by name */
 router.delete('/', (req, res, next) => {
   Country.deleteOne({name: req.headers['name']}, (err) => {
     if(err) return console.log(err);

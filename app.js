@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 require("dotenv").config();
 
-mongoose.connect("mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + process.env.DBHOST, function(err) {
+mongoose.connect("mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + process.env.DBHOST, { useNewUrlParser: true }, function(err) {
   if(err) return console.log(err);
   console.log('db-connected..');
 });

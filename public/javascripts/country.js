@@ -17,7 +17,12 @@ function addCountryAjax(formData){
         processData: false,
         success: function (response) {
           console.log(response);
+          addAllCountriesToList(response);
           alertMessage('Country Added', 'alert-success', 3000);
+        },
+        error: function (err){
+            console.log(err);
+            alertMessage('Country Not Added', 'alert-warning', 3000);
         }
     });
 }
@@ -70,7 +75,7 @@ function addAllCountriesToList(countries){
 
         const tdFlag = document.createElement('td');
         const imgFlag = document.createElement('img');
-        imgFlag.src = countries[i].flag;
+        imgFlag.src = 'home/aleksandar/web/GeoApi/' + countries[i].flag;
         imgFlag.height = '20';
         imgFlag.width = '20';
 
