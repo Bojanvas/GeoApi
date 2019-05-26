@@ -8,7 +8,6 @@ $(document).ready(function(){
 
     $(document).on('click','.delete-country', function (){
         var id = $(this).closest('tr').data('country-id');
-        console.log(deleteCountry(id));
         deleteCountry(id);
         $(this).closest('tr').remove();
     })
@@ -24,6 +23,7 @@ function addCountryAjax(formData){
         processData: false,
         success: function (response) {
             console.log(response);
+            addAllCountriesToList([response]);
             //Dismiss modal
             $('#add-country-modal').modal('toggle');
             alertMessage('Country added', 'alert-success', 3000);
