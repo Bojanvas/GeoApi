@@ -31,7 +31,7 @@ router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_
 
 /* DELETE country by name */
 router.delete('/', (req, res, next) => {
-  Country.deleteOne({name: req.headers['name']}, (err) => {
+  Country.deleteOne({_id: req.headers['id']}, (err) => {
     if(err) return console.log(err);
     res.status(200).json({
       message: "Country Deleted"

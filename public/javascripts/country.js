@@ -5,6 +5,13 @@ $(document).ready(function(){
         var formData = new FormData($(this)[0]);
         addCountryAjax(formData);
     })
+
+    $(document).on('click','.delete-country', function (){
+        var id = $(this).closest('tr').data('country-id');
+        console.log(deleteCountry(id));
+        deleteCountry(id);
+        $(this).closest('tr').remove();
+    })
 });
 
 function addCountryAjax(formData){
@@ -28,16 +35,20 @@ function addCountryAjax(formData){
     });
 }
 
-function deleteCountry(name){
+function deleteCountry(id){
     $.ajax({
         url: '/questions',
         type: 'DELETE',
         headers:{
-            'name': name,
+            'id': id,
         },
         success: function (response){
             console.log(response);
             alertMessage('Country deleted', 'alert-warning', 3000);
+        },
+        error: function (err) {
+            console.log(err);
+            alertMessage('Country not deleted', 'alert-warning', 3000);
         }
     });
 }
@@ -60,6 +71,7 @@ function addAllCountriesToList(countries){
     for(let i = 0; i < countries.length; i++){
 
         const tr = document.createElement('tr');
+        tr.setAttribute('data-country-id', countries[i]._id);
 
         const th = document.createElement('th');
         th.scope = 'row';
@@ -87,27 +99,27 @@ function addAllCountriesToList(countries){
         imgCountryImg.width = '20';
 
         const tdDel = document.createElement('td');
-        const aDel = document.createElement('a');
-        aDel.href = '';
-        aDel.style = 'color: inherit'
+        const spanDel = document.createElement('span');
+        spanDel.classList = 'delete-country';
+        spanDel.style = 'color: inherit'
         const imgDel = document.createElement('i');
         imgDel.classList = "far fa-times-circle fa-2x";
 
-        tbody.appendChild(tr);
-        tbody.appendChild(th);
-        tbody.appendChild(tdName);
-        tbody.appendChild(tdCapital);
-        tbody.appendChild(tdPoints);
+        tr.appendChild(th);
+        tr.appendChild(tdName);
+        tr.appendChild(tdCapital);
+        tr.appendChild(tdPoints);
 
         tdFlag.appendChild(imgFlag);
-        tbody.appendChild(tdFlag);
+        tr.appendChild(tdFlag);
 
         tdCountryImg.appendChild(imgCountryImg);
-        tbody.appendChild(tdCountryImg);
+        tr.appendChild(tdCountryImg);
 
-        aDel.appendChild(imgDel);
-        tdDel.appendChild(aDel);
-        tbody.appendChild(tdDel);
+        spanDel.appendChild(imgDel);
+        tdDel.appendChild(spanDel);
+        tr.appendChild(tdDel);
+        tbody.appendChild(tr);
     }
 }
 
