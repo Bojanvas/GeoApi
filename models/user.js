@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
  
-const User = new Schema({
+const UserSchema = new Schema({
   id: ObjectId,
   email: String,
   password: String,
@@ -13,5 +13,7 @@ const User = new Schema({
   is_guest : { type: Boolean, default: false },
   country : { type: String, default: 'Unknown' },
 });
+
+var User = mongoose.model('User', UserSchema);
 
 module.exports = User;

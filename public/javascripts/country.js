@@ -8,8 +8,13 @@ $(document).ready(function(){
 
     $(document).on('click','.delete-country', function (){
         var id = $(this).closest('tr').data('country-id');
-        deleteCountry(id);
-        $(this).closest('tr').remove();
+        var context = this;
+        $('#delete-country-modal').modal('show');
+        $(document).on('click', '#delete-country-js', function(){
+            deleteCountry(id);
+            $('#delete-country-modal').modal('hide');
+            $(context).closest('tr').remove();
+        });
     })
 });
 
