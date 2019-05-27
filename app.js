@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+const passport = require('passport');
 require("dotenv").config();
 
 mongoose.connect("mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + process.env.DBHOST, { useNewUrlParser: true }, function(err) {
@@ -27,6 +28,7 @@ app.use(logger('dev'));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/dashboard', indexRouter);

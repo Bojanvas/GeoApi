@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var context;
     getAllCountries();
     $('#add-country').submit(function(e) {
         e.preventDefault();
@@ -8,14 +9,22 @@ $(document).ready(function(){
 
     $(document).on('click','.delete-country', function (){
         var id = $(this).closest('tr').data('country-id');
-        var context = this;
+        context = this;
         $('#delete-country-modal').modal('show');
-        $(document).on('click', '#delete-country-js', function(){
-            deleteCountry(id);
-            $('#delete-country-modal').modal('hide');
-            $(context).closest('tr').remove();
-        });
+        $('#delete-country-modal').find('.remove-value-js').val(id);
     })
+
+    $(document).on('click','#cancel-delete-country-js' , function(){
+        $(this).siblings('.remove-value-js').val('');
+        context = '';
+    });
+
+    $(document).on('click', '#delete-country-js', function() {
+        var id = $(this).siblings('.remove-value-js').val();
+        deleteCountry(id);
+        $('#delete-country-modal').modal('hide');
+        $(context).closest('tr').remove();
+    });
 });
 
 function addCountryAjax(formData){
