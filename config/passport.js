@@ -14,6 +14,7 @@ passport.use(new GoogleStrategy({
     // console.log('profile', profile);
     User.findOne({ email: profile.emails[0].value }, (err, existingUser) => {
         if(err) return console.log(err);
+        console.log("accessToken", refreshToken);
         console.log("User exist: " + existingUser);
         if(existingUser){
             return done(null, existingUser);
