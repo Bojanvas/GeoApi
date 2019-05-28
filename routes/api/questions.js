@@ -1,7 +1,10 @@
 var express = require('express');
 const Country = require('../../models/country');
-var multer  = require('multer')
+const cloudinary = require('cloudinary').v2
+const cloudinaryConf = require('../../config/cloudinary');
+var multer  = require('multer');
 var upload = multer({ dest: 'public/uploads/countries/' });
+require("dotenv").config();
 
 var router = express.Router();
 
@@ -15,6 +18,9 @@ router.get('/', (req, res, next) => {
 
 /* POST country */
 router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_img', maxCount: 1 }]), function(req, res, next) {
+  console.log("req.files", req.files);
+  uploadImg(req.files.flag[0].path);
+  uploadImg(req.files.country_img[0].path);
   const country = new Country({
     name: req.body.country_name,
     capital: req.body.capital,
@@ -38,5 +44,13 @@ router.delete('/', (req, res, next) => {
     });
   });
 });
+
+//"my_picture.jpg" arg example
+function uploadImg(img){
+  cloudinary.uploader.upload(img, function(err, result) { 
+    if(err) return err;
+    console.log(result);
+  });
+}
 
 module.exports = router;

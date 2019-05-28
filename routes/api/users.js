@@ -12,8 +12,7 @@ router.get('/auth/google',
 
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login', session: false }), (req, res) => {
   //Check for old token. If have send it to verification, if not create new token
-  const token = req.headers['JWT'];
-  console.log('headertoken: ' + token);
+  const token = req.headers['jwt'];
   if(token){
     res.redirect('/users/auth');
   }else{
@@ -35,7 +34,6 @@ router.get('/auth', auth.verifyToken, (req, res, next) => {
 function createJWT(req, res){
   jwt.sign({ id: req.user.id, name: req.user.name, email: req.user.email}, process.env.JWT_KEY, { expiresIn: '1h' }, (err, token) => {
     if(err) return console.log(err);
-    console.log("JWT", token);
     res.status(200).json({
       message: 'Signin successful',
       token: token

@@ -11,10 +11,8 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "http://localhost:3000/users/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
-    // console.log('profile', profile);
     User.findOne({ email: profile.emails[0].value }, (err, existingUser) => {
         if(err) return console.log(err);
-        console.log("accessToken", refreshToken);
         console.log("User exist: " + existingUser);
         if(existingUser){
             return done(null, existingUser);
@@ -40,6 +38,6 @@ passport.use(new FacebookStrategy({
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: "http://localhost:3000/users/auth/facebook/callback"
 }, (accessToken, refreshToken, profile, done) => {
-        console.log('profile', profile);
+
 }
 ));
