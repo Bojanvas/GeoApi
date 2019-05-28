@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-var verifyJWT = {
+var auth = {
 
     /* Token verification middleware */
     verifyToken(req, res, next){
@@ -28,4 +28,4 @@ var verifyJWT = {
 };
 
 
-module.exports = verifyJWT
+module.exports = auth
