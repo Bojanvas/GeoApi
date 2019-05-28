@@ -5,7 +5,7 @@ var auth = {
     /* Token verification middleware */
     verifyToken(req, res, next){
         //Get auth header value
-        const token = req.headers['JWT'];
+        const token = req.headers['jwt'];
         //Check if authHeader is undefined
         if(typeof token !== 'undefined'){
         //Set the token and do the verification

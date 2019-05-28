@@ -11,8 +11,14 @@ router.get('/auth/google',
   passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.email'], session: false }));
 
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login', session: false }), (req, res) => {
-  createJWT(req, res);
-  res.redirect('/users/auth');
+  //Check for old token. If have send it to verification, if not create new token
+  const token = req.headers['JWT'];
+  console.log('headertoken: ' + token);
+  if(token){
+    res.redirect('/users/auth');
+  }else{
+    createJWT(req, res);
+  }
 });
 
 router.get('/auth/facebook', passport.authenticate('facebook'));
