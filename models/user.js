@@ -5,6 +5,7 @@ const ObjectId = Schema.ObjectId;
  
 const UserSchema = new Schema({
   id: ObjectId,
+  name: String,
   email: String,
   password: String,
   last_active: { type: Date, default: Date.now },

@@ -12,7 +12,6 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:3000/users/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
     // console.log('profile', profile);
-    // console.log(profile.emails[0].value);
     User.findOne({ email: profile.emails[0].value }, (err, existingUser) => {
         if(err) return console.log(err);
         console.log("User exist: " + existingUser);
@@ -43,14 +42,3 @@ passport.use(new FacebookStrategy({
         console.log('profile', profile);
 }
 ));
-
-
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
-  
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
