@@ -5,6 +5,7 @@ const cloudinaryConf = require('../../config/cloudinary');
 var multer  = require('multer');
 var upload = multer({ dest: 'public/uploads/countries/' });
 require("dotenv").config();
+const parentPath = 'https://res.cloudinary.com/dlc29htkz/image/upload/v1559069595/';
 
 var router = express.Router();
 
@@ -17,16 +18,16 @@ router.get('/', (req, res, next) => {
 });
 
 /* POST country */
-router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_img', maxCount: 1 }]), function(req, res, next) {
-  console.log("req.files", req.files);
-  uploadImg(req.files.flag[0].path);
-  uploadImg(req.files.country_img[0].path);
+router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_img', maxCount: 1 }]), (req, res, next) => {
+  var flagImgUrl = uploadImg(req.files.flag[0].path);
+  var countryImgUrl = uploadImg(req.files.country_img[0].path);
+  // console.log("flagImgUrl", flagImgUrl);
   const country = new Country({
     name: req.body.country_name,
     capital: req.body.capital,
     points: req.body.points,
-    flag: req.files.flag[0].path,
-    country_img: req.files.country_img[0].path
+    flag: flagImgUrl,
+    country_img: countryImgUrl
   });
 
   country.save((err, country) => {
@@ -35,7 +36,7 @@ router.post('/', upload.fields([{ name: 'flag', maxCount: 1 }, { name: 'country_
   });
 });
 
-/* DELETE country by name */
+/* DELETE country by id */
 router.delete('/', (req, res, next) => {
   Country.deleteOne({_id: req.headers['id']}, (err) => {
     if(err) return console.log(err);
@@ -45,11 +46,25 @@ router.delete('/', (req, res, next) => {
   });
 });
 
-//"my_picture.jpg" arg example
+/*
+* return result.url for http path
+* return result.secure_url for https path
+*/
 function uploadImg(img){
-  cloudinary.uploader.upload(img, function(err, result) { 
-    if(err) return err;
-    console.log(result);
+  cloudinary.uploader.upload(img, (err, result) => { 
+    if(err) return  console.log(err);
+    return result.url
+  });
+}
+
+/*
+* arg image name without .extension
+* return result
+*/
+function deleteImg(img){
+  cloudinary.uploader.destroy(img, (err, result) => {
+    if(err) return console.log(err);
+    return result;
   });
 }
 
