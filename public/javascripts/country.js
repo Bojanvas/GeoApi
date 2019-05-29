@@ -102,15 +102,15 @@ function addAllCountriesToList(countries){
 
         const tdFlag = document.createElement('td');
         const imgFlag = document.createElement('img');
-        // imgFlag.src = countries[i].flag.replace("public", "");
-        // imgFlag.height = '20';
-        // imgFlag.width = '20';
+        imgFlag.src = countries[i].flag_file_path;
+        imgFlag.height = '20';
+        imgFlag.width = '20';
 
         const tdCountryImg = document.createElement('td');
         const imgCountryImg = document.createElement('img');
-        // imgCountryImg.src = countries[i].country_img.replace("public", "");
-        // imgCountryImg.height = '20';
-        // imgCountryImg.width = '20';
+        imgCountryImg.src = countries[i].country_file_path;
+        imgCountryImg.height = '20';
+        imgCountryImg.width = '20';
 
         const tdDel = document.createElement('td');
         const spanDel = document.createElement('span');

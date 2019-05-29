@@ -7,8 +7,10 @@ const CountrySchema = new Schema({
   id: ObjectId,
   name: String,
   capital: String,
-  flag: String,
-  country_img : String,
+  flag_file_name: String,
+  flag_file_path: String,
+  country_file_name : String,
+  country_file_path : String,
   points: { type: Number, default: 5 },
 });
 
