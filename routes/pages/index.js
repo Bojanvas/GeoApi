@@ -11,6 +11,11 @@ router.get('/countries', (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Countries', page: 'inc/_countries'});
 });
 
+/* GET ranking page */
+router.get('/ranking', (req, res, next) => {
+  res.render('dashboard', { title: 'Dashboard | Ranking', page: 'inc/_ranking'});
+});
+
 /* GET documentation page */
 router.get('/documentation', (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Documentation', page: 'inc/_documentation'});
