@@ -1,12 +1,14 @@
 $(document).ready(() => {
 
-    //Handling dashboard navigation clicks
-    // $(document).on('click', '#dashboard-main', () => {
-
-    // });
-
-    // $(document).on('click', '#dashboard-countries', () => {
-    //     const parent = document.querySelector('#main');
-    //     parent.innerHTML = `<%- include('inc/_countries'); %>`;
-    // });
+    var btnContainer = document.querySelector('.dashboard-aside');
+    var btns = btnContainer.getElementsByClassName("dashboard-a");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", () => {
+          var current = document.getElementsByClassName("active");
+          if (current.length > 0) { 
+            current[0].className = current[0].className.replace(" active", "");
+          }
+          this.className += " active";
+        });
+    }
 });

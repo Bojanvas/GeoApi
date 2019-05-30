@@ -26,26 +26,27 @@ a {
   background-color: #DCDCDC;
   height: 100vh;
   padding-left: 0;
-  box-shadow: 0px 0px 10px 5px #aaaaaa;
+  box-shadow: 3px 0px 10px 5px #aaaaaa;
 }
 
 .dashboard-title{
   font-size: 26px;
   color: #212529;
-  padding: 24px 8px;
+  padding: 24px 10px;
   border-bottom: solid 1px #212529;
 }
 
 .dashboard-a{
   font-size: 16px;
   color: #212529;
-  padding: 14px 8px;
+  padding: 14px 10px;
   border-bottom: solid 0.5px #212529;
   display: block;
 }
 
-.dashboard-a:hover{
+.dashboard-a:hover, .active{
   background-color: #212529;
   color: #fff;
   transition: 0.3s;
+  box-shadow: 12px 0px 10px 2px #696969;
 }
