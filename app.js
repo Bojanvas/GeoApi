@@ -14,7 +14,7 @@ mongoose.connect("mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + 
   console.log('db-connected..');
 });
 
-var indexRouter = require('./routes/api/index');
+var indexRouter = require('./routes/pages/index');
 var usersRouter = require('./routes/api/users');
 var questionsRouter = require('./routes/api/questions');
 var resultsRouter = require('./routes/api/results');

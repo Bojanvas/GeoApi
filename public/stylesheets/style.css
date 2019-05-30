@@ -8,7 +8,14 @@ h1, h2, h3, h4, h5, h6{
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none !important;
+}
+
+
+/* Dashboard */
+.title{
+  font-size: 26px;
+
 }
 
 .delete-country {
@@ -17,6 +24,7 @@ a {
 
 .dashboard-aside{
   background-color: #DCDCDC;
+  height: 100vh;
 }
 
 .dashboard-title{
@@ -35,7 +43,6 @@ a {
 }
 
 .dashboard-a:hover{
-  text-decoration: none;
   background-color: #212529;
   color: #fff;
   transition: 0.3s;

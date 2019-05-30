@@ -6,14 +6,14 @@ $(document).ready(function(){
         var formData = new FormData($(this)[0]);
         $('.spinner-border').removeClass('d-none').addClass('d-block');
         addCountryAjax(formData);
-    })
+    });
 
     $(document).on('click','.delete-country', function (){
         var id = $(this).closest('tr').data('country-id');
         context = this;
         $('#delete-country-modal').modal('show');
         $('#delete-country-modal').find('.remove-value-js').val(id);
-    })
+    });
 
     $(document).on('click','#cancel-delete-country-js' , function(){
         $(this).siblings('.remove-value-js').val('');

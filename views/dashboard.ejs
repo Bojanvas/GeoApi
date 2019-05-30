@@ -18,19 +18,23 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 col-sm-4 dashboard-aside">
-                    <h1 class="dashboard-title">Dashboard</h1>
-                    <a class="dashboard-a" href="">Countries</a>
+                    <a id="dashboard-main" href="/dashboard"><h1 class="dashboard-title">Dashboard</h1></a>
+                    <a id="dashboard-countries" class="dashboard-a" href="/dashboard/countries">Countries</a>
                     <a class="dashboard-a" href="">Landforms</a>
                     <a class="dashboard-a" href="">Water</a>
+                    <a class="dashboard-a" href="/dashboard/documentation">Documentation</a>
                 </div>
                 <div class="col-md-10 col-sm-8 pt-4">
                     <%- include('modal/_add_country'); %>
                     <%- include('modal/_delete_country'); %>
-
-                    <%- include('inc/_countries'); %>
+                    <main id="main">
+                        <!-- Placeholder for navigation-->
+                        <%- include(page); %>
+                    </main>
                 </div>
             </div>
         </div>
   </body>
+  <script src="/javascripts/dashboard.js"></script>
   <script src="/javascripts/country.js"></script>
 </html>

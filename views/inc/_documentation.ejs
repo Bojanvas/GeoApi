@@ -1,0 +1,15 @@
+<h1 class="title text-center text-uppercase">Documentation</h1>
+<br>
+<h5>Endpoints List</h5>
+<br>
+<p>GET questions/                   - res(all countries)</p>
+<p>POST questions/                  - res(saved country), req(form with country details)</p>
+<p>DELETE questions/                - res(successful message), req(headers['id'])</p>
+<p>GET questions/ranked             - res(five random countries)</p>
+<br>
+<p>GET users/auth                   - req(headers['jwt'])</p>
+<p>GET users/auth/google            - for google oauth login</p>
+<p>GET users/auth/google/callback   - if header has valid jwt 'res' is redirected to 'users/auth', else new token is issued</p>
+<br>
+<h6 class="font-weight-bold">Geo REST API is private</h6>
+<h6 class="font-weight-bold">Author and Owner: Bojan Vasilevski</h6>
