@@ -12,36 +12,22 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-        <div class="alert" role="alert">
+        <div class="alert" style="display:none" role="alert">
             <!--Placeholder for alert message-->
         </div>
-        <h1 stlye='text-align:center;margin-bottom:30px;'>Dashboard</h1>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <h4>Add new question</h4>
-                    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#add-country-modal">Add Country</button>
-
+                <div class="col-md-2 col-sm-4 dashboard-aside">
+                    <h1 class="dashboard-title">Dashboard</h1>
+                    <a class="dashboard-a" href="">Countries</a>
+                    <a class="dashboard-a" href="">Landforms</a>
+                    <a class="dashboard-a" href="">Water</a>
+                </div>
+                <div class="col-md-10 col-sm-8 pt-4">
                     <%- include('modal/_add_country'); %>
                     <%- include('modal/_delete_country'); %>
-                    <hr>
 
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Capital</th>
-                            <th scope="col">Points</th>
-                            <th scope="col">Flag</th>
-                            <th scope="col">Country Img</th>
-                            <th scope="col">Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table-countries">
-                            <!--Placeholder for countries-->
-                        </tbody>
-                    </table>
+                    <%- include('inc/_countries'); %>
                 </div>
             </div>
         </div>

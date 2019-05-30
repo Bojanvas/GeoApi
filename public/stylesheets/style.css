@@ -1,6 +1,10 @@
 body {
-  padding: 50px;
+  padding-right: 40px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
 }
 
 a {
@@ -9,4 +13,30 @@ a {
 
 .delete-country {
   cursor: pointer;
+}
+
+.dashboard-aside{
+  background-color: #DCDCDC;
+}
+
+.dashboard-title{
+  font-size: 26px;
+  color: #212529;
+  padding: 22px 6px;
+  border-bottom: solid 1px #212529;
+}
+
+.dashboard-a{
+  font-size: 16px;
+  color: #212529;
+  padding: 12px 6px;
+  border-bottom: solid 1px #212529;
+  display: block;
+}
+
+.dashboard-a:hover{
+  text-decoration: none;
+  background-color: #212529;
+  color: #fff;
+  transition: 0.3s;
 }
