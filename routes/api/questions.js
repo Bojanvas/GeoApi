@@ -3,6 +3,7 @@ const Country = require('../../models/country');
 const cloudinary = require('cloudinary').v2;
 const cloudinaryConf = require('../../config/cloudinary');
 const repository = require('../../repositories/repository');
+const countryUtils = require('../../utils/countryUtils');
 var multer  = require('multer');
 var upload = multer({ dest: 'public/uploads/countries/' });
 require("dotenv").config();
@@ -45,7 +46,7 @@ router.delete('/', (req, res, next) => {
 router.get('/ranked', (req, res, next) => {
   Country.find({}, (err, countries) => {
     if(err) return console.log(err);
-    var random = repository.getRandom(countries, 5);
+    var random = countryUtils.getRandom(countries, 5);
     res.status(200).json(random);
   }).lean();
 
