@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('#add-country').submit(function(e) {
         e.preventDefault();
         var formData = new FormData($(this)[0]);
+        $('.spinner-border').removeClass('d-none').addClass('d-block');
         addCountryAjax(formData);
     })
 
@@ -40,10 +41,12 @@ function addCountryAjax(formData){
             addAllCountriesToList([response]);
             //Dismiss modal
             $('#add-country-modal').modal('toggle');
+            $('.spinner-border').removeClass('d-block').addClass('d-none');
             alertMessage('Country added', 'alert-success', 3000);
         },
         error: function (err){
             console.log(err);
+            $('.spinner-border').removeClass('d-block').addClass('d-none');
             alertMessage('Country not added', 'alert-warning', 3000);
         }
     });
