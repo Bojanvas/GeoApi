@@ -15,6 +15,7 @@ router.get('/', (req, res, next) => {
   repository.getAllCountries((err, countries) => {
     if (err) console.log(err);
     res.status(200).json(countries);
+  });
 });
 
 /* POST country */
