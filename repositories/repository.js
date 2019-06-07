@@ -10,8 +10,7 @@ const repository = {
     */
     getAllCountries(completeCallback){
         Country.find({}, (err, countries) => {
-            if(err) return console.log(err);
-            completeCallback(countries);
+            completeCallback(err, countries);
         });
     },
 
@@ -37,8 +36,7 @@ const repository = {
           });
 
           country.save((err, country) => {
-            if (err) return console.error(err);
-            completeCallback(country);
+            completeCallback(err, country);
           });
     },
 
@@ -54,8 +52,7 @@ const repository = {
           deleteImg(country.country_file_name);
         }).then(() => {
           Country.deleteOne({_id: id}, (err) => {
-              if(err) return console.log(err);
-              completeCallback();
+              completeCallback(err);
           });
       });
     },
