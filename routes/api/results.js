@@ -1,43 +1,26 @@
 var express = require('express');
 var router = express.Router();
-const Result = require('./../../models/result');
+const repository = require('../../repositories/repository');
 
 /* GET results */
 router.get('/', (req, res, next) => {
-  Result.find({}, (err, results) => {
+  repository.getAllResults((err, results) => {
     if(err) console.log(err);
-    if(results != undefined){
-      res.status(200).json(results);
-    }else{
-      res.status(404).json({
-        message: "Not Found"
-      });
-    }
+    res.status(200).json(results);
   });
 });
 
 /* GET results for user by id */
 router.get('/:userId', (req, res, next) => {
-  Result.find({ userId: req.params.userId}, (err, results) => {
-    if(err) console.log(err);
-    if(results != undefined){
-      res.status(200).json(results);
-    }else{
-      res.status(404).json({
-        message: "Not Found"
-      });
-    }
+  repository.getResultsByUserId(userId, (err, results) => {
+    if (err) console.log(err);
+    res.status(200).json(results);
   });
 });
 
 /* POST result */
 router.post('/', (req, res, next) => {
-  const result = new Result({
-    userId: req.headers['userId'],
-    points: req.headers['points']
-  });
-
-  result.save((err, result) => {
+  repository.saveResult(req.headers['userId'], req.headers['points'], (err, result) => {
     if(err) console.log(err);
     res.status(200).json(result);
   });
