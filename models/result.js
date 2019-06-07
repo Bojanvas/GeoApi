@@ -1,13 +1,13 @@
-const mongose = require('mongose');
-const Schema = mongose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const ResultSchema = new Schema({
     id: ObjectId,
-    userId: Number,
+    userId: String,
     date: { type: Date, default: Date.now },
     points: String
 });
 
-var Result = mongose.model('Result', ResultSchema);
+var Result = mongoose.model('Result', ResultSchema);
 module.exports = Result;
