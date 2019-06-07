@@ -13,7 +13,13 @@ var router = express.Router();
 /* GET all countries. */
 router.get('/', (req, res, next) => {
   repository.getAllCountries((countries) => {
-    res.status(200).json(countries);
+    if (countries !== undefined) {
+      res.status(200).json(countries);
+    }else{
+      res.status(404).json({
+        message: "Not Found"
+      });
+    }
   });
 });
 
