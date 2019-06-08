@@ -26,4 +26,14 @@ router.post('/', (req, res, next) => {
   });
 });
 
+/* DELETE result */
+router.delete('/', (req, res, next) => {
+  repository.deleteResult(req.headers['id'], (err) => {
+    if(err) console.log(err);
+    res.status(200).json({
+      message: "Result Deleted"
+    });
+  });
+});
+
 module.exports = router;

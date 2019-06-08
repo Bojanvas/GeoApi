@@ -12,8 +12,8 @@ router.get('/countries', (req, res, next) => {
 });
 
 /* GET ranking page */
-router.get('/ranking', (req, res, next) => {
-  res.render('dashboard', { title: 'Dashboard | Ranking', page: 'inc/_ranking'});
+router.get('/results', (req, res, next) => {
+  res.render('dashboard', { title: 'Dashboard | Results', page: 'inc/_results'});
 });
 
 /* GET documentation page */

@@ -93,8 +93,14 @@ const repository = {
     result.save((err, result) => {
       completeCallback(err, result);
     });
-   }
+   },
 
+   deleteResult(id, completeCallback){
+       console.log(id);
+    Result.deleteOne({_id: id}, (err) => {
+      completeCallback(err);
+    });
+   }
 }
 
 /*

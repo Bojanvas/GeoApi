@@ -18,7 +18,7 @@ a {
 
 }
 
-.delete-country {
+.delete-country, .delete-result {
   cursor: pointer;
 }
 
