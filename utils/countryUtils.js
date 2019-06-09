@@ -12,7 +12,7 @@ const countryUtils = {
             result[n] = arr[x in taken ? taken[x] : x];
             taken[x] = --len in taken ? taken[len] : len;
             result[n].type = type = getRandomType();
-            result[n].answers = getRandomAnswers(arr, n, type);
+            result[n].answers = getRandomAnswers(arr, x, type);
 
         }
         return result;
@@ -32,18 +32,18 @@ function getRandomAnswers(questions = [], index = 0, type='') {
         var answersOptions = new Array(3),
         len = questions.length,
         takenAnswers = new Array(len);
+        takenAnswers[index] = --len;
         for (let i = 0; i< 3; i++) {
             var x = Math.floor(Math.random() * len);
             
             if (type == 'city') {
-                answersOptions[i] = questions[x in takenAnswers && x != index  ? takenAnswers[x] : x].capital;
+                answersOptions[i] = questions[x in takenAnswers ? takenAnswers[x] : x].capital;
                 takenAnswers[x] = --len in takenAnswers ? takenAnswers[len] : len;
             } else if (type =='country' || type =='flag'){
-                answersOptions[i] = questions[x in takenAnswers && x != index  ? takenAnswers[x] : x].name;
+                answersOptions[i] = questions[x in takenAnswers ? takenAnswers[x] : x].name;
                 takenAnswers[x] = --len in takenAnswers ? takenAnswers[len] : len;
             }
         }
-
         return JSON.stringify(answersOptions);
     } 
 }
