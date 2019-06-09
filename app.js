@@ -39,6 +39,7 @@ app.use('/questions', questionsRouter);
 app.use('/results', resultsRouter);
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.get('*', (req, res) => {res.render('error');});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

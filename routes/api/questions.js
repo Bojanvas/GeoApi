@@ -12,7 +12,8 @@ var router = express.Router();
 
 /* GET all countries. */
 router.get('/', (req, res, next) => {
-  repository.getAllCountries((countries) => {
+  repository.getAllCountries((err, countries) => {
+    if (err) console.log(err);
     res.status(200).json(countries);
   });
 });
@@ -25,7 +26,8 @@ router.post('/', upload.fields([{ name: 'flag_file', maxCount: 1 }, { name: 'cou
       if(err) return console.log(err);
 
       repository.saveCountry(req.body.country_name, req.body.capital, req.body.points, 
-        resultFlag.public_id, resultFlag.secure_url, resultCountryImg.public_id, resultCountryImg.secure_url, (country) => {
+        resultFlag.public_id, resultFlag.secure_url, resultCountryImg.public_id, resultCountryImg.secure_url, (err, country) => {
+          if (err) return console.error(err);
           res.status(200).json(country);
       });
     });
@@ -34,7 +36,8 @@ router.post('/', upload.fields([{ name: 'flag_file', maxCount: 1 }, { name: 'cou
 
 /* DELETE country by id */
 router.delete('/', (req, res, next) => {
-  repository.deleteCountry(req.headers['id'], () => {
+  repository.deleteCountry(req.headers['id'], (err) => {
+    if(err) return console.log(err);
     res.status(200).json({
       message: "Country Deleted"
     });

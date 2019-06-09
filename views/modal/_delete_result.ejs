@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div id="delete-result-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Result</h4>
+            </div>
+            <form id='delete-result' enctype="multipart/form-data" method="post" name="fileinfo">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <p>Do you want to delete selected result?</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" id='cancel-delete-result-js' data-dismiss="modal">Close</button>
+                    <button type='button' class="btn btn-danger" id='delete-result-js' data-dismiss="">Delete</button>
+                    <input type="hidden" class="remove-value-js" value=""  />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

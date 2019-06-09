@@ -12,13 +12,18 @@ router.get('/countries', (req, res, next) => {
 });
 
 /* GET ranking page */
-router.get('/ranking', (req, res, next) => {
-  res.render('dashboard', { title: 'Dashboard | Ranking', page: 'inc/_ranking'});
+router.get('/results', (req, res, next) => {
+  res.render('dashboard', { title: 'Dashboard | Results', page: 'inc/_results'});
 });
 
 /* GET documentation page */
 router.get('/documentation', (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Documentation', page: 'inc/_documentation'});
+});
+
+/* GET server log page */
+router.get('/log', (req, res, next) => {
+  res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log'});
 });
 
 module.exports = router;

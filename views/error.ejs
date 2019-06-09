@@ -1,3 +1,23 @@
-<h1><%= message %></h1>
+<!-- <h1><%= message %></h1>
 <h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<pre><%= error.stack %></pre> -->
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template text-center" style="margin-top: 200px">
+                <h1>Oops!</h1>
+                <h2>404 Not Found</h2>
+                <div class="error-details" style="padding:16px">
+                    Sorry, an error has occured, Requested page not found!
+                </div>
+                <div class="error-actions">
+                    <a href="/dashboard" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>Go Home </a>
+            </div>
+        </div>
+    </div>
+</div>
