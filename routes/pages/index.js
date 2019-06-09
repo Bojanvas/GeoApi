@@ -21,4 +21,9 @@ router.get('/documentation', (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Documentation', page: 'inc/_documentation'});
 });
 
+/* GET server log page */
+router.get('/log', (req, res, next) => {
+  res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log'});
+});
+
 module.exports = router;
