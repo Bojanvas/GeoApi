@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "app-root-path": "^2.2.1",
     "body-parser": "^1.19.0",
     "cloudinary": "^1.14.0",
     "cookie-parser": "~1.4.3",

@@ -3,8 +3,8 @@ var express = require('express');
 var path = require('path');
 const fs = require('fs');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var logger_mongose = require('mongoose-morgan');
+const morgan = require('morgan');
+const winston = require('./config/winstonLogger');
 const cors = require('cors');
 const mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -27,18 +27,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// create a write stream (in append mode)
-var accessLogStream = fs.createWriteStream(path.join(__dirname, 'logger.log'), { flags: 'a' })
-
-app.use(logger('dev'));
-app.use(logger_mongose({
-  collection: 'logger',
-  connectionString: "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + process.env.DBHOST}, { 
-  skip: function (req, res) {
-    return res.statusCode < 400; 
-  }}, 'dev'
-));
-app.use(logger('dev', { stream: accessLogStream }));
+app.use(morgan('dev', { stream: winston.stream }));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());

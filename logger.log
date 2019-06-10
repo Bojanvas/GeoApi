@@ -154,3 +154,10 @@
 [0mGET /favicon.ico [31m500 [0m13.606 ms - 2945[0m
 [0mGET /results [36m304 [0m84.957 ms - -[0m
 [0mGET /questions [36m304 [0m925.117 ms - -[0m
+[0mGET /dashboard/countries [36m304 [0m43.911 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m5.503 ms - -[0m
+[0mGET /javascripts/dashboard.js [36m304 [0m3.733 ms - -[0m
+[0mGET /javascripts/country.js [36m304 [0m3.514 ms - -[0m
+[0mGET /favicon.ico [31m500 [0m5.905 ms - 2945[0m
+[0mGET /results [36m304 [0m101.691 ms - -[0m
+[0mGET /questions [36m304 [0m439.221 ms - -[0m

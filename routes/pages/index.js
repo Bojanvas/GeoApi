@@ -24,7 +24,7 @@ router.get('/documentation', (req, res, next) => {
 
 /* GET server log page */
 router.get('/log', (req, res, next) => {
-  fs.readFile('logger.log', 'utf8', (err, data) => {
+  fs.readFile('logs/app.log', 'utf8', (err, data) => {
     if(err) console.log(err);
     res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: data});
   });
