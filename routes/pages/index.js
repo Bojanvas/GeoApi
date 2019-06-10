@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -23,7 +24,19 @@ router.get('/documentation', (req, res, next) => {
 
 /* GET server log page */
 router.get('/log', (req, res, next) => {
-  res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log'});
+  fs.readFile('logger.log', 'utf8', (err, data) => {
+    if(err) console.log(err);
+    res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: data});
+  });
+
+  // var readline = require('readline').createInterface({
+  //   input: require('fs').createReadStream('logger.log')
+  // });
+  // var lines = [];
+  // readline.on('line', (line) => {
+  //   lines.push(line);
+  // });
+  // res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: lines});
 });
 
 module.exports = router;
