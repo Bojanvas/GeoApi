@@ -1,6 +1,8 @@
 const Country = require('../models/country');
 const Result = require('../models/result');
 const cloudinary = require('cloudinary').v2;
+const cloudinaryConf = require('../config/cloudinary');
+const countryUtils = require('../utils/countryUtils');
 
 const repository = {
 
@@ -110,6 +112,14 @@ const repository = {
     Result.deleteOne({_id: id}, (err) => {
       completeCallback(err);
     });
+   },
+
+   getUniqueQuestions(completeCallback){
+    Country.find({}, (err, countries) => {
+      if(err) return console.log(err);
+      var randomCountries = countryUtils.getRandom(countries, 5);
+      completeCallback(err, randomCountries);
+    }).lean();
    }
 }
 

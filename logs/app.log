@@ -157,3 +157,17 @@
 
 2019-06-12T08:13:49.583Z, [32minfo[39m, 	[0mDELETE /questions [32m200 [0m566.168 ms - 29[0m
 
+2019-06-12T08:19:01.309Z, [32minfo[39m, 	[0mPOST /questions [31m500 [0m91.801 ms - 891[0m
+
+2019-06-12T08:19:43.044Z, [32minfo[39m, 	[0mPOST /questions [32m200 [0m3038.298 ms - 395[0m
+
+2019-06-12T08:19:49.113Z, [32minfo[39m, 	[0mDELETE /questions [32m200 [0m535.678 ms - 29[0m
+
+2019-06-12T08:24:35.625Z, [32minfo[39m, 	[0mGET /ranked [31m500 [0m46.282 ms - 2945[0m
+
+2019-06-12T08:24:36.217Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m10.305 ms - 2945[0m
+
+2019-06-12T08:25:40.836Z, [32minfo[39m, 	[0mGET /questions/ranked [32m200 [0m160.985 ms - 2267[0m
+
+2019-06-12T08:25:41.053Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m26.454 ms - 2945[0m
+
