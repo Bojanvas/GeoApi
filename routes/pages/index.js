@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
+const fileUtils = require('../../utils/fileUtils');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -24,9 +24,13 @@ router.get('/documentation', (req, res, next) => {
 
 /* GET server log page */
 router.get('/log', (req, res, next) => {
-  fs.readFile('logs/app.log', 'utf8', (err, data) => {
-    if(err) console.log(err);
-    res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: data});
+  // fs.readFile('logs/app.log', 'utf8', (err, data) => {
+  //   if(err) console.log(err);
+  //   res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: data});
+  // });
+  fileUtils.processLineByLine('logs/app.log', (lines) => {
+    console.log(lines);
+    res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: lines});
   });
 });
 
