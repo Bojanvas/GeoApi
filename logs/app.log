@@ -487,3 +487,147 @@
 
 2019-06-12T09:08:16.608Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m448.214 ms - -[0m
 
+2019-06-12T09:19:33.403Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m48.362 ms - 31993[0m
+
+2019-06-12T09:19:33.422Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m2.298 ms - -[0m
+
+2019-06-12T09:19:33.425Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.100 ms - -[0m
+
+2019-06-12T09:19:33.426Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m1.415 ms - -[0m
+
+2019-06-12T09:19:33.534Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m12.226 ms - 2945[0m
+
+2019-06-12T09:19:33.606Z, [32minfo[39m, 	[0mGET /results [36m304 [0m84.840 ms - -[0m
+
+2019-06-12T09:19:33.963Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m440.664 ms - -[0m
+
+2019-06-12T09:19:57.012Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m411.432 ms - 32700[0m
+
+2019-06-12T09:19:57.023Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m2.271 ms - -[0m
+
+2019-06-12T09:19:57.024Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m2.690 ms - -[0m
+
+2019-06-12T09:19:57.025Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m0.295 ms - -[0m
+
+2019-06-12T09:19:57.111Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m2.594 ms - 2945[0m
+
+2019-06-12T09:19:57.171Z, [32minfo[39m, 	[0mGET /results [36m304 [0m92.789 ms - -[0m
+
+2019-06-12T09:19:57.542Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m449.928 ms - -[0m
+
+2019-06-12T09:20:03.097Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m0.823 ms - -[0m
+
+2019-06-12T09:21:46.993Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m420.128 ms - 43373[0m
+
+2019-06-12T09:21:47.007Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m2.278 ms - -[0m
+
+2019-06-12T09:21:47.010Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.130 ms - -[0m
+
+2019-06-12T09:21:47.011Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m1.645 ms - -[0m
+
+2019-06-12T09:21:47.279Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m3.506 ms - 2945[0m
+
+2019-06-12T09:21:47.335Z, [32minfo[39m, 	[0mGET /results [36m304 [0m91.854 ms - -[0m
+
+2019-06-12T09:21:47.701Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m443.038 ms - -[0m
+
+2019-06-12T09:22:14.849Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m485.717 ms - 40082[0m
+
+2019-06-12T09:22:14.865Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m2.719 ms - -[0m
+
+2019-06-12T09:22:14.866Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m3.447 ms - -[0m
+
+2019-06-12T09:22:14.867Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m3.598 ms - -[0m
+
+2019-06-12T09:22:14.973Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m3.765 ms - 2945[0m
+
+2019-06-12T09:22:15.034Z, [32minfo[39m, 	[0mGET /results [36m304 [0m88.665 ms - -[0m
+
+2019-06-12T09:22:15.409Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m451.114 ms - -[0m
+
+2019-06-12T09:22:18.290Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m439.793 ms - 40943[0m
+
+2019-06-12T09:22:18.300Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m0.620 ms - -[0m
+
+2019-06-12T09:22:18.300Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m0.620 ms - -[0m
+
+2019-06-12T09:22:18.302Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m0.274 ms - -[0m
+
+2019-06-12T09:22:18.414Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m1.085 ms - 2945[0m
+
+2019-06-12T09:22:18.485Z, [32minfo[39m, 	[0mGET /results [36m304 [0m74.697 ms - -[0m
+
+2019-06-12T09:22:18.492Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m80.832 ms - -[0m
+
+2019-06-12T09:22:47.285Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m39.964 ms - 38998[0m
+
+2019-06-12T09:22:47.300Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m2.547 ms - -[0m
+
+2019-06-12T09:22:47.303Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.469 ms - -[0m
+
+2019-06-12T09:22:47.304Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m2.314 ms - -[0m
+
+2019-06-12T09:22:47.391Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m2.721 ms - 2945[0m
+
+2019-06-12T09:22:47.444Z, [32minfo[39m, 	[0mGET /results [36m304 [0m94.351 ms - -[0m
+
+2019-06-12T09:22:47.803Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m440.725 ms - -[0m
+
+2019-06-12T09:23:14.633Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m47.164 ms - 43813[0m
+
+2019-06-12T09:23:14.646Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m1.533 ms - -[0m
+
+2019-06-12T09:23:14.648Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m0.752 ms - -[0m
+
+2019-06-12T09:23:14.649Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m0.842 ms - -[0m
+
+2019-06-12T09:23:14.732Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m2.408 ms - 2945[0m
+
+2019-06-12T09:23:14.788Z, [32minfo[39m, 	[0mGET /results [36m304 [0m87.351 ms - -[0m
+
+2019-06-12T09:23:15.406Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m692.805 ms - -[0m
+
+2019-06-12T09:23:18.643Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m0.539 ms - -[0m
+
+2019-06-12T09:23:50.363Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m38.925 ms - 15256[0m
+
+2019-06-12T09:23:50.388Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m3.256 ms - -[0m
+
+2019-06-12T09:23:50.389Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m3.074 ms - -[0m
+
+2019-06-12T09:23:50.390Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m3.421 ms - -[0m
+
+2019-06-12T09:23:50.562Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m3.056 ms - 2945[0m
+
+2019-06-12T09:23:50.621Z, [32minfo[39m, 	[0mGET /results [36m304 [0m96.657 ms - -[0m
+
+2019-06-12T09:23:50.965Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m421.273 ms - -[0m
+
+2019-06-12T09:24:26.809Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m37.700 ms - 15438[0m
+
+2019-06-12T09:24:26.826Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m2.446 ms - -[0m
+
+2019-06-12T09:24:26.830Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.595 ms - -[0m
+
+2019-06-12T09:24:26.831Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m2.463 ms - -[0m
+
+2019-06-12T09:24:26.968Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m4.232 ms - 2945[0m
+
+2019-06-12T09:24:27.022Z, [32minfo[39m, 	[0mGET /results [36m304 [0m93.079 ms - -[0m
+
+2019-06-12T09:24:27.391Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m446.894 ms - -[0m
+
+2019-06-12T09:24:45.203Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m53.644 ms - 76968[0m
+
+2019-06-12T09:24:45.222Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m2.342 ms - -[0m
+
+2019-06-12T09:24:45.237Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.050 ms - -[0m
+
+2019-06-12T09:24:45.238Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m0.426 ms - -[0m
+
+2019-06-12T09:24:45.387Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m4.269 ms - 2945[0m
+
+2019-06-12T09:24:45.441Z, [32minfo[39m, 	[0mGET /results [36m304 [0m91.880 ms - -[0m
+
+2019-06-12T09:24:46.114Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m750.063 ms - -[0m
+
