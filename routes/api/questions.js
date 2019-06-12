@@ -24,12 +24,6 @@ router.post('/', upload.fields([{ name: 'flag_file', maxCount: 1 }, { name: 'cou
       if (err) return console.error(err);
       res.status(200).json(country);
   });
-  // cloudinary.uploader.upload(req.files.flag_file[0].path, {width: 300, height: 200, crop: "fill"}, (err, resultFlag) => { 
-  //   if(err) return console.log(err);
-  //   cloudinary.uploader.upload(req.files.country_file[0].path, {width: 300, height: 200, crop: "fill"}, (err, resultCountryImg) => { 
-  //     if(err) return console.log(err);
-  //   });
-  // });
 });
 
 /* DELETE country by id */

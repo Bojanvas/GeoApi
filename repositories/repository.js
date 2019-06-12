@@ -40,6 +40,10 @@ const repository = {
           });
 
           country.save((err, country) => {
+            if(err){
+              deleteImg(country.flag_file_name);
+              deleteImg(country.country_file_name);
+            }
             completeCallback(err, country);
           });
         });
