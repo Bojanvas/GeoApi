@@ -1,64 +1,155 @@
-{"error":{},"level":"error","message":"uncaughtException: logger is not defined\nReferenceError: logger is not defined\n    at Object.write (/home/aleksandar/web/GeoApi/config/winstonLogger.js:32:5)\n    at Array.logRequest (/home/aleksandar/web/GeoApi/node_modules/morgan/index.js:130:14)\n    at listener (/home/aleksandar/web/GeoApi/node_modules/on-finished/index.js:169:15)\n    at onFinish (/home/aleksandar/web/GeoApi/node_modules/on-finished/index.js:100:5)\n    at callback (/home/aleksandar/web/GeoApi/node_modules/ee-first/index.js:55:10)\n    at ServerResponse.onevent (/home/aleksandar/web/GeoApi/node_modules/ee-first/index.js:93:5)\n    at ServerResponse.emit (events.js:203:15)\n    at onFinish (_http_outgoing.js:671:10)\n    at afterWrite (_stream_writable.js:485:3)\n    at process._tickCallback (internal/process/next_tick.js:63:19)","stack":"ReferenceError: logger is not defined\n    at Object.write (/home/aleksandar/web/GeoApi/config/winstonLogger.js:32:5)\n    at Array.logRequest (/home/aleksandar/web/GeoApi/node_modules/morgan/index.js:130:14)\n    at listener (/home/aleksandar/web/GeoApi/node_modules/on-finished/index.js:169:15)\n    at onFinish (/home/aleksandar/web/GeoApi/node_modules/on-finished/index.js:100:5)\n    at callback (/home/aleksandar/web/GeoApi/node_modules/ee-first/index.js:55:10)\n    at ServerResponse.onevent (/home/aleksandar/web/GeoApi/node_modules/ee-first/index.js:93:5)\n    at ServerResponse.emit (events.js:203:15)\n    at onFinish (_http_outgoing.js:671:10)\n    at afterWrite (_stream_writable.js:485:3)\n    at process._tickCallback (internal/process/next_tick.js:63:19)","exception":true,"date":"Mon Jun 10 2019 14:58:29 GMT+0200 (Central European Summer Time)","process":{"pid":2561,"uid":1000,"gid":1000,"cwd":"/home/aleksandar/web/GeoApi","execPath":"/usr/bin/node","version":"v10.16.0","argv":["/usr/bin/node","/home/aleksandar/web/GeoApi/bin/www"],"memoryUsage":{"rss":78254080,"heapTotal":62164992,"heapUsed":23177296,"external":18332284}},"os":{"loadavg":[1.7841796875,1.19384765625,1.0888671875],"uptime":22681},"trace":[{"column":5,"file":"/home/aleksandar/web/GeoApi/config/winstonLogger.js","function":"Object.write","line":32,"method":"write","native":false},{"column":14,"file":"/home/aleksandar/web/GeoApi/node_modules/morgan/index.js","function":"Array.logRequest","line":130,"method":"logRequest","native":false},{"column":15,"file":"/home/aleksandar/web/GeoApi/node_modules/on-finished/index.js","function":"listener","line":169,"method":null,"native":false},{"column":5,"file":"/home/aleksandar/web/GeoApi/node_modules/on-finished/index.js","function":"onFinish","line":100,"method":null,"native":false},{"column":10,"file":"/home/aleksandar/web/GeoApi/node_modules/ee-first/index.js","function":"callback","line":55,"method":null,"native":false},{"column":5,"file":"/home/aleksandar/web/GeoApi/node_modules/ee-first/index.js","function":"ServerResponse.onevent","line":93,"method":"onevent","native":false},{"column":15,"file":"events.js","function":"ServerResponse.emit","line":203,"method":"emit","native":false},{"column":10,"file":"_http_outgoing.js","function":"onFinish","line":671,"method":null,"native":false},{"column":3,"file":"_stream_writable.js","function":"afterWrite","line":485,"method":null,"native":false},{"column":19,"file":"internal/process/next_tick.js","function":"process._tickCallback","line":63,"method":"_tickCallback","native":false}]}
-{"message":"::1 - - [10/Jun/2019:13:00:13 +0000] \"GET /dashboard/countries HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:00:13 +0000] \"GET /stylesheets/style.css HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:00:13 +0000] \"GET /javascripts/dashboard.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:00:13 +0000] \"GET /javascripts/country.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:00:13 +0000] \"GET /favicon.ico HTTP/1.1\" 500 2945 \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:00:13 +0000] \"GET /results HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:00:13 +0000] \"GET /questions HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:39:20 +0000] \"GET /dashboard/log HTTP/1.1\" 200 14193 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:39:20 +0000] \"GET /stylesheets/style.css HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:39:20 +0000] \"GET /javascripts/country.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:39:20 +0000] \"GET /javascripts/dashboard.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:39:20 +0000] \"GET /favicon.ico HTTP/1.1\" 500 2945 \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:39:21 +0000] \"GET /results HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:13:39:21 +0000] \"GET /questions HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:15:05 +0000] \"GET /dashboard/countries HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:15:05 +0000] \"GET /stylesheets/style.css HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:15:05 +0000] \"GET /javascripts/dashboard.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:15:05 +0000] \"GET /javascripts/country.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:15:05 +0000] \"GET /favicon.ico HTTP/1.1\" 500 2945 \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:15:05 +0000] \"GET /results HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:15:06 +0000] \"GET /questions HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:16:23 +0000] \"GET /dashboard/countries HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:16:24 +0000] \"GET /stylesheets/style.css HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:16:24 +0000] \"GET /javascripts/dashboard.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:16:24 +0000] \"GET /javascripts/country.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:16:24 +0000] \"GET /favicon.ico HTTP/1.1\" 500 2945 \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:16:24 +0000] \"GET /results HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:16:24 +0000] \"GET /questions HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"level":"info","message":""}
-{"level":"info","message":""}
-{"level":"info","message":""}
-{"level":"info","message":""}
-{"level":"info","message":""}
-{"level":"info","message":""}
-{"level":"info","message":""}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:17:48 +0000] \"GET /dashboard/countries HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/log\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:17:48 +0000] \"GET /stylesheets/style.css HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:17:48 +0000] \"GET /javascripts/dashboard.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:17:48 +0000] \"GET /javascripts/country.js HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:17:49 +0000] \"GET /favicon.ico HTTP/1.1\" 500 2945 \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:17:49 +0000] \"GET /results HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [10/Jun/2019:14:17:50 +0000] \"GET /questions HTTP/1.1\" 304 - \"http://localhost:3000/dashboard/countries\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36\"\n","level":"info"}
-{"message":"\u001b[0mGET /dashboard/countries \u001b[36m304 \u001b[0m36.722 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /stylesheets/style.css \u001b[36m304 \u001b[0m8.789 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /javascripts/dashboard.js \u001b[36m304 \u001b[0m10.052 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /javascripts/country.js \u001b[36m304 \u001b[0m1.605 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /favicon.ico \u001b[31m500 \u001b[0m41.698 ms - 2945\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /results \u001b[36m304 \u001b[0m147.363 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /questions \u001b[36m304 \u001b[0m503.350 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /dashboard/log \u001b[32m200 \u001b[0m53.302 ms - 24722\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /stylesheets/style.css \u001b[36m304 \u001b[0m7.959 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /javascripts/dashboard.js \u001b[36m304 \u001b[0m10.782 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /javascripts/country.js \u001b[36m304 \u001b[0m11.484 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /favicon.ico \u001b[31m500 \u001b[0m5.480 ms - 2945\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /results \u001b[36m304 \u001b[0m97.610 ms - -\u001b[0m\n","level":"info"}
-{"message":"\u001b[0mGET /questions \u001b[36m304 \u001b[0m468.381 ms - -\u001b[0m\n","level":"info"}
+
+
+2019-06-10T17:40:32.500Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m41.775 ms - 7575[0m
+
+2019-06-10T17:40:32.568Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m12.630 ms - -[0m
+
+2019-06-10T17:40:32.571Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m15.377 ms - -[0m
+
+2019-06-10T17:40:32.573Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m16.054 ms - -[0m
+
+2019-06-10T17:40:32.809Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m25.103 ms - 2945[0m
+
+2019-06-10T17:40:32.892Z, [32minfo[39m, 	[0mGET /results [36m304 [0m110.273 ms - -[0m
+
+2019-06-10T17:40:33.248Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m465.496 ms - -[0m
+
+2019-06-10T17:40:34.665Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m10.737 ms - 8285[0m
+
+2019-06-10T17:40:34.784Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m4.425 ms - -[0m
+
+2019-06-10T17:40:34.786Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m4.803 ms - -[0m
+
+2019-06-10T17:40:34.788Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m5.021 ms - -[0m
+
+2019-06-10T17:40:34.994Z, [32minfo[39m, 	[0mGET /results [36m304 [0m70.700 ms - -[0m
+
+2019-06-10T17:40:35.006Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m78.493 ms - -[0m
+
+2019-06-10T17:40:35.024Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m3.198 ms - 2945[0m
+
+2019-06-10T17:45:39.152Z, [32minfo[39m
+2019-06-10T17:45:39.203Z, [32minfo[39m
+2019-06-10T17:45:39.206Z, [32minfo[39m
+2019-06-10T17:45:39.208Z, [32minfo[39m
+2019-06-10T17:45:39.448Z, [32minfo[39m
+2019-06-10T17:45:39.541Z, [32minfo[39m
+2019-06-10T17:45:39.908Z, [32minfo[39m
+2019-06-10T17:46:03.694Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m41.644 ms - 9276[0m
+
+2019-06-10T17:46:03.746Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m6.812 ms - -[0m
+
+2019-06-10T17:46:03.749Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m8.550 ms - -[0m
+
+2019-06-10T17:46:03.751Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m9.647 ms - -[0m
+
+2019-06-10T17:46:03.991Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m26.141 ms - 2945[0m
+
+2019-06-10T17:46:04.070Z, [32minfo[39m, 	[0mGET /results [36m304 [0m106.728 ms - -[0m
+
+2019-06-10T17:46:04.426Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m461.389 ms - -[0m
+
+2019-06-10T17:47:24.981Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m40.628 ms - 9983[0m
+
+2019-06-10T17:47:25.031Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m7.949 ms - -[0m
+
+2019-06-10T17:47:25.035Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m11.623 ms - -[0m
+
+2019-06-10T17:47:25.037Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m12.682 ms - -[0m
+
+2019-06-10T17:47:25.263Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m22.367 ms - 2945[0m
+
+2019-06-10T17:47:25.336Z, [32minfo[39m, 	[0mGET /results [36m304 [0m96.811 ms - -[0m
+
+2019-06-10T17:47:25.693Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m453.014 ms - -[0m
+
+2019-06-11T17:45:30.874Z, [32minfo[39m, 	[0mGET / [31m500 [0m43.449 ms - 2945[0m
+
+2019-06-11T17:45:30.895Z, [32minfo[39m, 	[0mGET /robots.txt [31m500 [0m5.315 ms - 2945[0m
+
+2019-06-11T17:45:31.582Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m1.369 ms - 2945[0m
+
+2019-06-11T17:45:38.171Z, [32minfo[39m, 	[0mGET /dashboard [36m304 [0m13.463 ms - -[0m
+
+2019-06-11T17:45:38.254Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m3.334 ms - -[0m
+
+2019-06-11T17:45:38.256Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.027 ms - -[0m
+
+2019-06-11T17:45:38.257Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m1.480 ms - -[0m
+
+2019-06-11T17:45:38.906Z, [32minfo[39m, 	[0mGET /results [36m304 [0m137.397 ms - -[0m
+
+2019-06-11T17:45:38.910Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m2.821 ms - 2945[0m
+
+2019-06-11T17:45:39.271Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m468.088 ms - -[0m
+
+2019-06-11T17:45:41.378Z, [32minfo[39m, 	[0mGET /dashboard/log [32m200 [0m15.619 ms - 11673[0m
+
+2019-06-11T17:45:41.450Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m3.435 ms - -[0m
+
+2019-06-11T17:45:41.451Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m3.917 ms - -[0m
+
+2019-06-11T17:45:41.453Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m4.481 ms - -[0m
+
+2019-06-11T17:45:41.622Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m2.453 ms - 2945[0m
+
+2019-06-11T17:45:41.654Z, [32minfo[39m, 	[0mGET /results [36m304 [0m72.857 ms - -[0m
+
+2019-06-11T17:45:41.667Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m83.340 ms - -[0m
+
+2019-06-12T07:33:55.192Z, [32minfo[39m, 	[0mGET / [31m500 [0m44.574 ms - 2945[0m
+
+2019-06-12T07:33:55.210Z, [32minfo[39m, 	[0mGET /robots.txt [31m500 [0m4.755 ms - 2945[0m
+
+2019-06-12T07:33:55.744Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m1.400 ms - 2945[0m
+
+2019-06-12T07:33:57.231Z, [32minfo[39m, 	[0mGET /dashboard [36m304 [0m13.967 ms - -[0m
+
+2019-06-12T07:33:57.318Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m4.824 ms - -[0m
+
+2019-06-12T07:33:57.323Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.544 ms - -[0m
+
+2019-06-12T07:33:57.327Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m1.327 ms - -[0m
+
+2019-06-12T07:33:57.844Z, [32minfo[39m, 	[0mGET /results [36m304 [0m132.468 ms - -[0m
+
+2019-06-12T07:33:57.983Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m4.468 ms - 2945[0m
+
+2019-06-12T07:33:58.206Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m466.246 ms - -[0m
+
+2019-06-12T07:34:00.275Z, [32minfo[39m, 	[0mGET /dashboard/countries [32m200 [0m8.304 ms - 8136[0m
+
+2019-06-12T07:34:00.393Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m1.361 ms - -[0m
+
+2019-06-12T07:34:00.402Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m2.525 ms - -[0m
+
+2019-06-12T07:34:00.404Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m2.726 ms - -[0m
+
+2019-06-12T07:34:00.628Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m2.072 ms - 2945[0m
+
+2019-06-12T07:34:00.638Z, [32minfo[39m, 	[0mGET /results [36m304 [0m80.102 ms - -[0m
+
+2019-06-12T07:34:00.647Z, [32minfo[39m, 	[0mGET /questions [36m304 [0m81.828 ms - -[0m
+
+2019-06-12T07:36:34.455Z, [32minfo[39m, 	[0mPOST /questions [31m500 [0m64.092 ms - 1470[0m
+
+2019-06-12T07:44:28.562Z, [32minfo[39m, 	[0mPOST /questions [31m500 [0m90.288 ms - 1546[0m
+
+2019-06-12T07:47:49.775Z, [32minfo[39m, 	[0mPOST /questions [32m200 [0m5041.195 ms - 380[0m
+
+2019-06-12T07:47:53.952Z, [32minfo[39m, 	[0mGET /dashboard/countries [36m304 [0m39.759 ms - -[0m
+
+2019-06-12T07:47:54.048Z, [32minfo[39m, 	[0mGET /stylesheets/style.css [36m304 [0m5.196 ms - -[0m
+
+2019-06-12T07:47:54.054Z, [32minfo[39m, 	[0mGET /javascripts/dashboard.js [36m304 [0m2.133 ms - -[0m
+
+2019-06-12T07:47:54.055Z, [32minfo[39m, 	[0mGET /javascripts/country.js [36m304 [0m2.792 ms - -[0m
+
+2019-06-12T07:47:54.388Z, [32minfo[39m, 	[0mGET /favicon.ico [31m500 [0m32.187 ms - 2945[0m
+
+2019-06-12T07:47:54.473Z, [32minfo[39m, 	[0mGET /questions [32m200 [0m119.758 ms - 7405[0m
+
+2019-06-12T07:47:54.830Z, [32minfo[39m, 	[0mGET /results [36m304 [0m476.494 ms - -[0m
+
+2019-06-12T07:48:01.560Z, [32minfo[39m, 	[0mDELETE /questions [32m200 [0m173.031 ms - 29[0m
+

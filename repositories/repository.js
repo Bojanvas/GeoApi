@@ -17,27 +17,33 @@ const repository = {
     /*
     * Save country in db
     * @arg1: name of the country 
-    * @arg2: country points
-    * @arg3: name of the flag img file
-    * @arg4: path of the flag img file 
-    * @arg5: name of the country img file 
-    * @arg6: path of the country img file
-    * @arg7: complete callback
+    * @arg2: name of the capital city
+    * @arg3: country points
+    * @arg4: path of the flag image
+    * @arg5: path of the country image
+    * @arg6: complete callback
     */
-    saveCountry(name, capital, points, flag_file_name, flag_file_path, country_file_name, country_file_path, completeCallback) {
-        const country = new Country({
+    saveCountry(name, capital, points, flagImgPath, countryImgPath, completeCallback) {
+      cloudinary.uploader.upload(flagImgPath, {width: 300, height: 200, crop: "fill"}, (err, resultFlagImg) => {
+        if(err) return console.log(err);
+        cloudinary.uploader.upload(countryImgPath, {width: 300, height: 200, crop: "fill"}, (err, resultCountryImg) => {
+          if(err) return console.log(err);
+          
+          const country = new Country({
             name: name,
             capital: capital,
             points: points,
-            flag_file_name: flag_file_name,
-            flag_file_path: flag_file_path,
-            country_file_name: country_file_name,
-            country_file_path: country_file_path
+            flag_file_name: resultFlagImg.public_id,
+            flag_file_path: resultFlagImg.secure_url,
+            country_file_name: resultCountryImg.public_id,
+            country_file_path: resultCountryImg.secure_url
           });
 
           country.save((err, country) => {
             completeCallback(err, country);
           });
+        });
+      });
     },
 
     /*

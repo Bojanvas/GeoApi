@@ -28,15 +28,6 @@ router.get('/log', (req, res, next) => {
     if(err) console.log(err);
     res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: data});
   });
-
-  // var readline = require('readline').createInterface({
-  //   input: require('fs').createReadStream('logger.log')
-  // });
-  // var lines = [];
-  // readline.on('line', (line) => {
-  //   lines.push(line);
-  // });
-  // res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: lines});
 });
 
 module.exports = router;

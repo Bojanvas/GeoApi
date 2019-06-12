@@ -1,28 +1,24 @@
 const winston = require('winston');
 const appRoot = require('app-root-path');
 
-const options = {
-  file: {
-    level: 'info',
-    filename: `${appRoot}/logs/app.log`,
-    handleExceptions: true,
-    json: true,
-    maxsize: 5242880, // 5MB
-    maxFiles: 5,
-    colorize: false,
-  },
-  console: {
-    level: 'debug',
-    handleExceptions: true,
-    json: false,
-    colorize: true,
-  },
-};
+
+const logFormat = winston.format.combine(
+  winston.format.colorize(),
+  winston.format.timestamp(),
+  winston.format.align(),
+  winston.format.printf((info) => `${info.timestamp}, ${info.level}, ${info.message}`),
+)
 
 var winstonLogger = winston.createLogger({
+  format: logFormat,
   transports: [
-    new winston.transports.File(options.file),
-    new winston.transports.Console(options.console)
+    new winston.transports.File({
+      filename: `${appRoot}/logs/app.log`,
+      level: 'info'
+    }),
+    new winston.transports.Console({
+      level: 'info'
+    })
   ],
   exitOnError: false, // do not exit on handled exceptions
 });
