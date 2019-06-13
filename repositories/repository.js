@@ -1,4 +1,5 @@
 const Country = require('../models/country');
+const User = require('../models/user');
 const Result = require('../models/result');
 const cloudinary = require('cloudinary').v2;
 const cloudinaryConf = require('../config/cloudinary');
@@ -91,6 +92,16 @@ const repository = {
     },
 
     /*
+    * Get results from db for selected country
+    */
+    getResultsByCountry(country, completeCallback){
+      User.find({ country: country}, (err, users) => {
+        if(err) console.log(err);
+        console.log(users);
+      });
+    },
+
+    /*
     * Save result in db
     * @arg1: id of the user
     * @arg2: points of the user
@@ -108,7 +119,6 @@ const repository = {
    },
 
    deleteResult(id, completeCallback){
-       console.log(id);
     Result.deleteOne({_id: id}, (err) => {
       completeCallback(err);
     });

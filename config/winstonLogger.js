@@ -6,7 +6,7 @@ const logFormat = winston.format.combine(
   winston.format.colorize(),
   winston.format.timestamp(),
   winston.format.align(),
-  winston.format.printf((info) => `${info.timestamp}, ${info.level}, ${info.message}`),
+  winston.format.printf((info) => `${info.timestamp}, ${info.message}`),
 )
 
 var winstonLogger = winston.createLogger({

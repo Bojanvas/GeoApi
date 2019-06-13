@@ -10,9 +10,17 @@ router.get('/', (req, res, next) => {
   });
 });
 
-/* GET results for user by id */
-router.get('/:userId', (req, res, next) => {
-  repository.getResultsByUserId(userId, (err, results) => {
+/* GET results by user by id */
+router.get('/userId', (req, res, next) => {
+  repository.getResultsByUserId(req.query.userId, (err, results) => {
+    if (err) console.log(err);
+    res.status(200).json(results);
+  });
+});
+
+/* GET results by country */
+router.get('/country', (req, res, next) => {
+  repository.getResultsByCountry(req.query.country, (err, results) => {
     if (err) console.log(err);
     res.status(200).json(results);
   });

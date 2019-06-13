@@ -1,18 +1,40 @@
 $(document).ready(() => {
+  var context;
+
+  //Ajax call for query results
   getAllResults();
 
+  /*
+  * Search results by country
+  */
+  $(document).on('click', '#result-search-submit', (e) => {
+    e.preventDefault();
+    const input = document.querySelector('#result-search-input');
+    getResultsByCountry(input.value);
+  });
+
+  /*
+  * Click listener for opening modal for delete result
+  */
   $(document).on('click','.delete-result', () => {
     var id = $(this).closest('tr').data('result-id');
     context = this;
+    console.log("id " + id);
     $('#delete-result-modal').modal('show');
     $('#delete-result-modal').find('.remove-value-js').val(id);
-});
+  });
 
+  /*
+  * Click listener for closing modal for delete result
+  */
   $(document).on('click','#cancel-delete-result-js' , () => {
       $(this).siblings('.remove-value-js').val('');
       context = '';
   });
 
+  /*
+  * Click listener for deliting result
+  */
   $(document).on('click', '#delete-result-js', () => {
       var id = $(this).siblings('.remove-value-js').val();
       deleteResult(id);
@@ -27,7 +49,37 @@ function getAllResults(){
     type: 'GET',
     success: (response) => {
       console.log(response);
-      addAllResultsToList(response);
+      addResultsToList(response);
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  });
+}
+
+function getResultsByUser(userId){
+  $.ajax({
+    url: '/results/:userid',
+    type: 'GET',
+    data: { user: userId },
+    success: (response) => {
+      console.log(response);
+      // addResultsToList(response);
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  });
+}
+
+function getResultsByCountry(country){
+  $.ajax({
+    url: '/results/:country',
+    type: 'GET',
+    data: { country: country },
+    success: (response) => {
+      console.log(response);
+      // addResultsToList(response);
     },
     error: (err) => {
       console.log(err);
@@ -53,7 +105,7 @@ function deleteResult(id){
   });
 }
 
-function addAllResultsToList(results){
+function addResultsToList(results){
   //Getting reference from the table body
   const tbody = document.querySelector('#table-results');
   //Creating new table row and appending country data

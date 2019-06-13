@@ -12,6 +12,11 @@ router.get('/countries', (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Countries', page: 'inc/_countries'});
 });
 
+/* GET users page */
+router.get('/users', (req, res, next) => {
+  res.render('dashboard', { title: 'Dashboard | Users', page: 'inc/_users'});
+});
+
 /* GET ranking page */
 router.get('/results', (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Results', page: 'inc/_results'});
@@ -24,10 +29,6 @@ router.get('/documentation', (req, res, next) => {
 
 /* GET server log page */
 router.get('/log', (req, res, next) => {
-  // fs.readFile('logs/app.log', 'utf8', (err, data) => {
-  //   if(err) console.log(err);
-  //   res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: data});
-  // });
   fileUtils.processLineByLine('logs/app.log', (lines) => {
     console.log(lines);
     res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: lines});
