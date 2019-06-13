@@ -76,7 +76,7 @@ function getAllResults(){
 
 function getResultsByUser(userId){
   $.ajax({
-    url: '/results/:userid',
+    url: '/results/userid',
     type: 'GET',
     data: { user: userId },
     success: (response) => {
@@ -91,7 +91,7 @@ function getResultsByUser(userId){
 
 function getResultsByCountry(country){
   $.ajax({
-    url: '/results/:country',
+    url: '/results/country',
     type: 'GET',
     data: { country: country },
     success: (response) => {

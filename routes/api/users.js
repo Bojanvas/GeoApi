@@ -48,4 +48,11 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.put('/', (req, res, next) => {
+  repository.setUserCountry(req.country, (err, user) => {
+    if(err) console.log(err);
+    res.status(200).json(user);
+  });
+});
+
 module.exports = router;
