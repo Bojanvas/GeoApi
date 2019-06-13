@@ -10,8 +10,8 @@ const UserSchema = new Schema({
   password: String,
   last_active: { type: Date, default: Date.now },
   is_premium : { type: Boolean, default: false },
-  experiance:  { type: Number, default: 0 },
   is_guest : { type: Boolean, default: false },
+  experiance:  { type: Number, default: 0 },
   country : { type: String, default: 'Unknown' },
 });
 

@@ -2,8 +2,8 @@ var express = require('express');
 var passport = require('passport');
 var jwt = require('jsonwebtoken');
 var auth = require('../../middlewares/auth');
+const repository = require('../../repositories/repository');
 var router = express.Router();
-const User = require('../../models/user');
 const passportConf = require('../../config/passport');
 
 
@@ -40,5 +40,12 @@ function createJWT(req, res){
     });
   });
 }
+
+router.get('/', (req, res, next) => {
+  repository.getAllUsers((err, users) => {
+    if(err) console.log(err);
+    res.status(200).json(users);
+  });
+});
 
 module.exports = router;

@@ -71,6 +71,16 @@ const repository = {
     },
 
     /*
+    * Get all users from db
+    * @arg1: completeCallback
+    */
+    getAllUsers(completeCallback){
+      User.find({}, (err, users) => {
+        completeCallback(err, users);
+      });
+    },
+
+    /*
     * Get all results from db
     * @arg1: completeCallback
     */
