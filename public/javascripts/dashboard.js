@@ -179,10 +179,10 @@ function addResultsToList(results){
       th.textContent = i;
 
       const tdName = document.createElement('td');
-      tdName.innerText = results[i].userId;
+      tdName.innerText = results[i].user.name;
 
       const tdCountry = document.createElement('td');
-      tdCountry.innerText = 'not supported';
+      tdCountry.innerText = results[i].user.country;
 
       const tdDate = document.createElement('td');
       tdDate.innerText = results[i].date;

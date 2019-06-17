@@ -96,7 +96,7 @@ const repository = {
   * @arg1: completeCallback
   */
   getAllResults(completeCallback){
-    Result.find({}, (err, results) => {
+    Result.find({}).populate('user').exec((err, results) => {
       completeCallback(err, results);
     });
   },
@@ -130,13 +130,16 @@ const repository = {
   * @arg3: completeCallback
   */
   saveResult(userId, points, completeCallback){
-    const result = new Result({
-      userId: userId,
-      points: points
-    });
-
-  result.save((err, result) => {
-    completeCallback(err, result);
+    User.findById(userId, (err, user) => {
+      if(err) console.log(err);
+      const result = new Result({
+        user: user,
+        points: points
+      });
+  
+    result.save((err, result) => {
+      completeCallback(err, result);
+      });
     });
   },
 
