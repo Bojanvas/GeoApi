@@ -49,7 +49,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.put('/', (req, res, next) => {
-  repository.editUser(req.headers['userid'], req.body, (err, user) => {
+  repository.editUser(req.body, (err, user) => {
     if(err) console.log(err);
     res.status(200).json(user);
   });

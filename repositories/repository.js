@@ -13,8 +13,8 @@ const repository = {
   * @arg2 new data
   * @arg3 callback
   */
-  editUser(userId, newData, callback){
-    User.findByIdAndUpdate(userId, {name:newData.name, country:newData.country}, {new: true}, (err, user) => {
+  editUser(newData, callback){
+    User.findByIdAndUpdate(newData._id, {name:newData.name, country:newData.country}, {new: true}, (err, user) => {
       callback(err, user);
     });
   },

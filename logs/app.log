@@ -2163,3 +2163,21 @@
 
 2019-06-17T10:57:08.111Z, 	[0mGET /questions [36m304 [0m466.852 ms - -[0m
 
+2019-06-17T11:20:05.702Z, 	[0mPUT /users [32m200 [0m113.347 ms - 202[0m
+
+2019-06-17T11:20:12.609Z, 	[0mGET /dashboard/users [36m304 [0m22.668 ms - -[0m
+
+2019-06-17T11:20:12.641Z, 	[0mGET /stylesheets/style.css [36m304 [0m1.446 ms - -[0m
+
+2019-06-17T11:20:12.642Z, 	[0mGET /javascripts/dashboard.js [36m304 [0m0.912 ms - -[0m
+
+2019-06-17T11:20:12.643Z, 	[0mGET /javascripts/country.js [36m304 [0m1.199 ms - -[0m
+
+2019-06-17T11:20:12.765Z, 	[0mGET /favicon.ico [31m500 [0m3.279 ms - 2945[0m
+
+2019-06-17T11:20:12.826Z, 	[0mGET /results [36m304 [0m78.283 ms - -[0m
+
+2019-06-17T11:20:13.204Z, 	[0mGET /questions [36m304 [0m446.649 ms - -[0m
+
+2019-06-17T11:20:13.213Z, 	[0mGET /users [32m200 [0m463.571 ms - 397[0m
+
