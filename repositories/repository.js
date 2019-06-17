@@ -8,13 +8,13 @@ const countryUtils = require('../utils/countryUtils');
 const repository = {
 
   /*
-  * Edit country of the user
+  * Edit user
   * @arg1 ID of the user
-  * @arg2 Name of the country
+  * @arg2 new data
   * @arg3 callback
   */
-  setUserCountry(userId, newCountry, callback){
-    User.findOneAndUpdate( {id:userId}, {$set:{country:newCountry}}, (err, user) => {
+  editUser(userId, newData, callback){
+    User.findByIdAndUpdate(userId, {name:newData.name, country:newData.country}, {new: true}, (err, user) => {
       callback(err, user);
     });
   },
