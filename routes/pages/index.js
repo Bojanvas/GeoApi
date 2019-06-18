@@ -4,6 +4,8 @@ const auth = require('../../middlewares/auth');
 const repository = require('../../repositories/repository');
 const passportConf = require('../../config/passport');
 const fileUtils = require('../../utils/fileUtils');
+const Admin = require('../../models/admin');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 
 /* GET home page. */
@@ -44,11 +46,31 @@ router.get('/login', (req, res, next) => {
 })
 
 //Login
-router.post('/login', passport.authenticate('local', {
-  successRedirect: '/dashboard',
-  failureRedirect: '/dashboard/login',
-  failureFlash: false
-}));
+router.post('/login', (req, res) => {
+  console.log(req.body.email);
+  Admin.findOne({ email: req.body.email }, (err, admin) => {
+    if (err) {
+        console.log(err);
+        return res.status(500);
+    }
+    if (admin == null) return res.status(403);
+    bcrypt.compare(req.body.password, admin.password, (err, isMatch) => {
+        if(err) return console.log(err);
+        if(isMatch){
+            //accure pass
+            createJWT(req, res);
+        }else{
+            //wrong pass
+            res.redirect('/dashboard/login');
+        }
+    });
+  });
+});
+
+//Login
+router.post('/login', passport.authenticate('jwt', { session: false }), (req, res) => {
+  console.log(req);
+});
 
 //Register DEV ONLY
 // router.post('/register', (req, res, next) => {
@@ -58,5 +80,15 @@ router.post('/login', passport.authenticate('local', {
 //       res.status(200).json(admin);
 //   });
 // });
+
+function createJWT(req, res){
+  jwt.sign({ id: req.user.id, name: req.user.name, email: req.user.email}, process.env.JWT_KEY, { expiresIn: '7d' }, (err, token) => {
+    if(err) return console.log(err);
+    res.status(200).json({
+      message: 'Signin successful',
+      token: token
+    });
+  });
+}
 
 module.exports = router;

@@ -8,7 +8,6 @@ const winston = require('./config/winstonLogger');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const session = require("express-session");
 const passport = require('passport');
 require("dotenv").config();
 
@@ -33,9 +32,7 @@ app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(cookieParser());
-app.use(session({ secret: "geo" }));
 app.use(passport.initialize());
-app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/dashboard', indexRouter);
