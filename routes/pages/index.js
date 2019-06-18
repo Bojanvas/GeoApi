@@ -1,6 +1,10 @@
 const express = require('express');
-const router = express.Router();
+const passport = require('passport');
+const auth = require('../../middlewares/auth');
+const repository = require('../../repositories/repository');
+const passportConf = require('../../config/passport');
 const fileUtils = require('../../utils/fileUtils');
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -34,5 +38,25 @@ router.get('/log', (req, res, next) => {
     res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: lines});
   });
 });
+
+router.get('/login', (req, res, next) => {
+  res.render('dashboard',  { title: 'Dashboard | Log', page: 'inc/_login'});
+})
+
+//Login
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/dashboard',
+  failureRedirect: '/dashboard/login',
+  failureFlash: false
+}));
+
+//Register DEV ONLY
+// router.post('/register', (req, res, next) => {
+//   repository.createAdmin(req.body.email, req.body.password, (err, admin) => {
+//       if(err) return console.log(err);
+//       if(!admin) return res.status(409).json({ message: 'Mail exists' });
+//       res.status(200).json(admin);
+//   });
+// });
 
 module.exports = router;

@@ -1,17 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
 const fs = require('fs');
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const winston = require('./config/winstonLogger');
 const cors = require('cors');
 const mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const session = require("express-session");
 const passport = require('passport');
 require("dotenv").config();
 
-mongoose.connect("mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + process.env.DBHOST, { useNewUrlParser: true }, function(err) {
+mongoose.connect("mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS + process.env.DBHOST, { useNewUrlParser: true }, (err) => {
   if(err) return console.log(err);
   console.log('db-connected..');
 });
@@ -32,7 +33,9 @@ app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(cookieParser());
+app.use(session({ secret: "geo" }));
 app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/dashboard', indexRouter);

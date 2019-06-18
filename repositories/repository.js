@@ -1,9 +1,11 @@
 const Country = require('../models/country');
+const Admin = require('../models/admin');
 const User = require('../models/user');
 const Result = require('../models/result');
 const cloudinary = require('cloudinary').v2;
 const cloudinaryConf = require('../config/cloudinary');
 const countryUtils = require('../utils/countryUtils');
+const bcrypt = require('bcrypt');
 
 const repository = {
 
@@ -155,6 +157,28 @@ const repository = {
       var randomCountries = countryUtils.getRandom(countries, 5);
       completeCallback(err, randomCountries);
     }).lean();
+  },
+
+  createAdmin(email, password, callback){
+    Admin.findOne({email: email}, (err, admin) => {
+      if(err) return console.log(err);
+      if(admin != null) {
+        return callback(err, false);
+      }else{
+        bcrypt.hash(password, 10, (err, hash) => {
+          if(err) return console.log(err);
+  
+          const admin = new Admin({
+            email: email,
+            password: hash,
+          });
+      
+          admin.save((err, admin) => {
+            callback(err, admin);
+          });
+        });
+      }
+    });
   }
 }
 

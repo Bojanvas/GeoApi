@@ -17,6 +17,7 @@
             <div class="row">
                 <div class="col-md-2 col-sm-4 dashboard-aside">
                     <a id="dashboard-main" href="/dashboard"><h1 class="dashboard-title">Dashboard</h1></a>
+                    <a class="dashboard-a" href="/dashboard/login"><i class="fas fa-unlock"></i> Admin Auth</a>
                     <a class="dashboard-a" href="/dashboard/countries"><i class="far fa-plus-square"></i> Countries</a>
                     <a class="dashboard-a" href=""><i class="far fa-plus-square"></i> Landforms</a>
                     <a class="dashboard-a" href=""><i class="far fa-plus-square"></i> Water</a>
@@ -30,6 +31,7 @@
                     <%- include('modal/_delete_country'); %>
                     <%- include('modal/_delete_result'); %>
                     <main id="main">
+                        
                         <!-- Placeholder for navigation-->
                         <%- include(page); %>
                     </main>
