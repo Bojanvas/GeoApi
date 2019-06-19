@@ -1,7 +1,8 @@
 $(document).ready(function(){
     var context;
     getAllCountries();
-    $('#add-country').submit(function(e) {
+    
+    $('#add-country').submit((e) => {
         e.preventDefault();
         var formData = new FormData($(this)[0]);
         $('.spinner-border').removeClass('d-none').addClass('d-block');

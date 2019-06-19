@@ -6,6 +6,9 @@ const passportConf = require('../../config/passport');
 const fileUtils = require('../../utils/fileUtils');
 const Admin = require('../../models/admin');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const multer  = require('multer');
+const upload = multer();
 const router = express.Router();
 require("dotenv").config();
 
@@ -15,27 +18,27 @@ router.get('/', (req, res, next) => {
 });
 
 /* GET countries page */
-router.get('/countries', (req, res, next) => {
+router.get('/countries', auth.verifyTokenAdmin, (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Countries', page: 'inc/_countries'});
 });
 
 /* GET users page */
-router.get('/users', (req, res, next) => {
+router.get('/users', auth.verifyTokenAdmin, (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Users', page: 'inc/_users'});
 });
 
 /* GET ranking page */
-router.get('/results', (req, res, next) => {
+router.get('/results', auth.verifyTokenAdmin, (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Results', page: 'inc/_results'});
 });
 
 /* GET documentation page */
-router.get('/documentation', (req, res, next) => {
+router.get('/documentation', auth.verifyTokenAdmin, (req, res, next) => {
   res.render('dashboard', { title: 'Dashboard | Documentation', page: 'inc/_documentation'});
 });
 
 /* GET server log page */
-router.get('/log', (req, res, next) => {
+router.get('/log', auth.verifyTokenAdmin, (req, res, next) => {
   fileUtils.processLineByLine('logs/app.log', (lines) => {
     console.log(lines);
     res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: lines});
@@ -47,7 +50,7 @@ router.get('/login', (req, res, next) => {
 })
 
 //Login
-router.post('/login', (req, res, next) => {
+router.post('/login', upload.none(), (req, res, next) => {
   Admin.findOne({ email: req.body.email }, (err, admin) => {
     if (err) {
         console.log(err);
@@ -58,7 +61,7 @@ router.post('/login', (req, res, next) => {
         if(err) return console.log(err);
         if(isMatch){
             //accure pass
-            createJWT(req, (err, token) => {
+            createJWT(admin, (err, token) => {
               if(err) return console.log(err);
               res.status(200).json({
                 message: 'Updated token successful',
@@ -83,8 +86,8 @@ router.post('/login', (req, res, next) => {
 // });
 
 //JWT for admin
-function createJWT(req, callback){
-  jwt.sign({ id: req.user.id, email: req.user.email}, process.env.JWT_KEY_ADMIN, { expiresIn: '7d' }, (err, token) => {
+function createJWT(admin, callback){
+  jwt.sign({ id: admin.id, email: admin.email}, process.env.JWT_KEY_ADMIN, { expiresIn: '7d' }, (err, token) => {
     if(err) return console.log(err);
     callback(err, token);
   });

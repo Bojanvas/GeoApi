@@ -7,6 +7,14 @@ $(document).ready(() => {
   //Ajax call for query users
   getAllUsers();
 
+  //Login
+  $('#form-login').submit((e) => {
+    e.preventDefault();
+    var form = document.getElementById('form-login');
+    var formData = new FormData(form);
+    loginAjax(formData);
+  });
+
   /*
   * Search results by country
   */
@@ -45,6 +53,29 @@ $(document).ready(() => {
       $(context).closest('tr').remove();
   });
 });
+
+function loginAjax(formData){
+  $.ajax({
+    url: '/dashboard/login',
+    type: 'POST',
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (response) {
+        console.log(response);
+        //Dismiss modal
+        $('#login-modal').modal('toggle');
+        alertMessage('Login successfuly', 'alert-success', 3000);
+        var token = response.token;
+        console.log(token)
+    },
+    error: function (err){
+        console.log(err);
+        alertMessage('Login unsuccessfuly', 'alert-warning', 3000);
+    }
+});
+}
 
 function getAllUsers(){
   $.ajax({
