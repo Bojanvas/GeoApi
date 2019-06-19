@@ -48,7 +48,6 @@ router.get('/login', (req, res, next) => {
 
 //Login
 router.post('/login', (req, res, next) => {
-  console.log(req.body.email);
   Admin.findOne({ email: req.body.email }, (err, admin) => {
     if (err) {
         console.log(err);
