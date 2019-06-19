@@ -16,7 +16,13 @@ router.get('/auth/google/callback', passport.authenticate('google', { failureRed
   if(token){
     res.redirect('/users/auth');
   }else{
-    createJWT(req, res);
+    createJWT(req, (err, token) => {
+      if(err) return console.log(err);
+      res.status(200).json({
+        message: 'Updated token successful',
+        token: token
+      });
+    });
   }
 });
 
@@ -31,13 +37,22 @@ router.get('/auth', auth.verifyToken, (req, res, next) => {
   });
 });
 
-function createJWT(req, res){
-  jwt.sign({ id: req.user.id, name: req.user.name, email: req.user.email}, process.env.JWT_KEY, { expiresIn: '1h' }, (err, token) => {
+/* Update token */
+router.put('/auth', auth.verifyToken, (req, res, next) => {
+  createJWT(req, (err, token) => {
     if(err) return console.log(err);
-    res.status(200).json({
-      message: 'Signin successful',
-      token: token
-    });
+      res.status(200).json({
+        message: 'Updated token successful',
+        token: token
+      });
+  });
+});
+
+//JWT for user
+function createJWT(req, callback){
+  jwt.sign({ id: req.user.id, name: req.user.name, email: req.user.email, country: req.user.country}, process.env.JWT_KEY, { expiresIn: '1h' }, (err, token) => {
+    if(err) return console.log(err);
+    callback(err, token);
   });
 }
 

@@ -7,6 +7,7 @@ const fileUtils = require('../../utils/fileUtils');
 const Admin = require('../../models/admin');
 const bcrypt = require('bcrypt');
 const router = express.Router();
+require("dotenv").config();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -46,7 +47,7 @@ router.get('/login', (req, res, next) => {
 })
 
 //Login
-router.post('/login', (req, res) => {
+router.post('/login', (req, res, next) => {
   console.log(req.body.email);
   Admin.findOne({ email: req.body.email }, (err, admin) => {
     if (err) {
@@ -58,18 +59,19 @@ router.post('/login', (req, res) => {
         if(err) return console.log(err);
         if(isMatch){
             //accure pass
-            createJWT(req, res);
+            createJWT(req, (err, token) => {
+              if(err) return console.log(err);
+              res.status(200).json({
+                message: 'Updated token successful',
+                token: token
+              });
+            });
         }else{
             //wrong pass
             res.redirect('/dashboard/login');
         }
     });
   });
-});
-
-//Login
-router.post('/login', passport.authenticate('jwt', { session: false }), (req, res) => {
-  console.log(req);
 });
 
 //Register DEV ONLY
@@ -81,13 +83,11 @@ router.post('/login', passport.authenticate('jwt', { session: false }), (req, re
 //   });
 // });
 
-function createJWT(req, res){
-  jwt.sign({ id: req.user.id, name: req.user.name, email: req.user.email}, process.env.JWT_KEY, { expiresIn: '7d' }, (err, token) => {
+//JWT for admin
+function createJWT(req, callback){
+  jwt.sign({ id: req.user.id, email: req.user.email}, process.env.JWT_KEY_ADMIN, { expiresIn: '7d' }, (err, token) => {
     if(err) return console.log(err);
-    res.status(200).json({
-      message: 'Signin successful',
-      token: token
-    });
+    callback(err, token);
   });
 }
 

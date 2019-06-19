@@ -4703,3 +4703,63 @@
 
 2019-06-18T17:53:38.637Z, 	[0mGET /results [36m304 [0m803.980 ms - -[0m
 
+2019-06-19T07:06:08.683Z, 	[0mGET /users/auth/google [36m302 [0m6.215 ms - 0[0m
+
+2019-06-19T07:06:09.669Z, 	[0mGET /users/auth/google/callback?code=4/bQFFcCVRkxt8wkzv5dkoXJSeOliRqJMiw8lnhWivqgCpaCZuOLRNRYc3lWr2sNZkV9_XbmdZfojp3V0R1sYbjSw&scope=email+https://www.googleapis.com/auth/userinfo.email+openid&authuser=0&session_state=0c344e5af68b7af09f3ee59e0b4af4f26da04c45..622d&prompt=none [32m200 [0m669.711 ms - 233[0m
+
+2019-06-19T07:06:09.739Z, 	[0mGET /favicon.ico [31m500 [0m10.466 ms - 2945[0m
+
+2019-06-19T07:06:58.616Z, 	[0mGET / [31m500 [0m2.175 ms - 2945[0m
+
+2019-06-19T07:06:58.812Z, 	[0mGET /favicon.ico [31m500 [0m1.337 ms - 2945[0m
+
+2019-06-19T07:07:00.149Z, 	[0mGET /dashboard [36m304 [0m13.406 ms - -[0m
+
+2019-06-19T07:07:00.198Z, 	[0mGET /stylesheets/style.css [36m304 [0m1.440 ms - -[0m
+
+2019-06-19T07:07:00.200Z, 	[0mGET /javascripts/dashboard.js [36m304 [0m0.937 ms - -[0m
+
+2019-06-19T07:07:00.200Z, 	[0mGET /javascripts/country.js [36m304 [0m1.151 ms - -[0m
+
+2019-06-19T07:07:00.357Z, 	[0mGET /favicon.ico [31m500 [0m1.865 ms - 2945[0m
+
+2019-06-19T07:07:00.820Z, 	[0mGET /questions [36m304 [0m460.631 ms - -[0m
+
+2019-06-19T07:07:00.828Z, 	[0mGET /users [36m304 [0m468.995 ms - -[0m
+
+2019-06-19T07:07:01.202Z, 	[0mGET /results [36m304 [0m843.807 ms - -[0m
+
+2019-06-19T07:07:02.175Z, 	[0mGET /dashboard/users [32m200 [0m6.631 ms - 8320[0m
+
+2019-06-19T07:07:02.211Z, 	[0mGET /stylesheets/style.css [36m304 [0m1.556 ms - -[0m
+
+2019-06-19T07:07:02.212Z, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.920 ms - -[0m
+
+2019-06-19T07:07:02.213Z, 	[0mGET /javascripts/country.js [36m304 [0m2.486 ms - -[0m
+
+2019-06-19T07:07:02.291Z, 	[0mGET /favicon.ico [31m500 [0m3.570 ms - 2945[0m
+
+2019-06-19T07:07:02.377Z, 	[0mGET /questions [36m304 [0m89.208 ms - -[0m
+
+2019-06-19T07:07:02.379Z, 	[0mGET /users [36m304 [0m91.585 ms - -[0m
+
+2019-06-19T07:07:02.451Z, 	[0mGET /results [36m304 [0m164.187 ms - -[0m
+
+2019-06-19T07:07:41.476Z, 	[0mGET /users/auth/google [36m302 [0m6.983 ms - 0[0m
+
+2019-06-19T07:07:42.493Z, 	[0mGET /users/auth/google/callback?code=4/bQEnj7XlWxNGF11zTyPWNCahUpu7NEqym77J5mtCfvDsXhN7JA7JW5s1UBpgkEtseHpX3ZhrnrDeMe9KUvYBjfk&scope=email+https://www.googleapis.com/auth/userinfo.email+openid&authuser=0&session_state=1650a695d1bbee15012f9c7a91c662182a6d8d8c..42ba&prompt=none [32m200 [0m695.505 ms - 270[0m
+
+2019-06-19T07:07:42.553Z, 	[0mGET /favicon.ico [31m500 [0m7.378 ms - 2945[0m
+
+2019-06-19T07:19:02.244Z, 	[0mGET /users/auth/google [36m302 [0m5.437 ms - 0[0m
+
+2019-06-19T07:19:03.282Z, 	[0mGET /users/auth/google/callback?code=4/bQHYoB1ATNikEvI7DIeRQL_QauKPodI9jCbqrrU4AJBwBp-35Fe2GneEOoZEC6IPHCWVyLCj-np1mhTAY6ORyMc&scope=email+openid+https://www.googleapis.com/auth/userinfo.email&authuser=0&session_state=c90c2bfdad854b8a6bba321092933e998f4228d8..da7c&prompt=none [32m200 [0m713.724 ms - 277[0m
+
+2019-06-19T07:19:03.346Z, 	[0mGET /favicon.ico [31m500 [0m7.346 ms - 2945[0m
+
+2019-06-19T07:19:06.822Z, 	[0mGET /users/auth/google [36m302 [0m1.483 ms - 0[0m
+
+2019-06-19T07:19:07.712Z, 	[0mGET /users/auth/google/callback?code=4/bQHXDLbI7LEZE60JAQGX4MuK6ICKkmjE92F9p1cFwLAkSLwNBpK-M5POFzYX96aqmrtVemSOWZ-4-BoeYtrPv0o&scope=email+openid+https://www.googleapis.com/auth/userinfo.email&authuser=0&session_state=245b87c650e53b99c3c9fd96256e4c5362d121f5..8804&prompt=none [32m200 [0m585.066 ms - 277[0m
+
+2019-06-19T07:19:07.790Z, 	[0mGET /favicon.ico [31m500 [0m1.662 ms - 2945[0m
+
