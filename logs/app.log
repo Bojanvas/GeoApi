@@ -6445,3 +6445,47 @@
 
 2019-06-19T16:37:24.313Z, 	[0mGET /results [36m304 [0m178.086 ms - -[0m
 
+2019-06-22T11:32:03.336Z, 	[0mGET / [36m302 [0m9.241 ms - 64[0m
+
+2019-06-22T11:32:03.347Z, 	[0mGET /robots.txt [31m500 [0m19.406 ms - 2945[0m
+
+2019-06-22T11:32:03.355Z, 	[0mGET /dashboard [32m200 [0m6.989 ms - 9228[0m
+
+2019-06-22T11:32:03.376Z, 	[0mGET /stylesheets/style.css [36m304 [0m2.037 ms - -[0m
+
+2019-06-22T11:32:03.384Z, 	[0mGET /javascripts/dashboard.js [32m200 [0m5.740 ms - 7403[0m
+
+2019-06-22T11:32:03.386Z, 	[0mGET /javascripts/country.js [32m200 [0m4.492 ms - 4826[0m
+
+2019-06-22T11:32:03.878Z, 	[0mGET /favicon.ico [31m500 [0m2.010 ms - 2945[0m
+
+2019-06-22T11:32:04.176Z, 	[0mGET /users [36m304 [0m441.975 ms - -[0m
+
+2019-06-22T11:32:04.194Z, 	[0mGET /questions [32m200 [0m449.228 ms - 7024[0m
+
+2019-06-22T11:32:04.520Z, 	[0mGET /results [36m304 [0m786.234 ms - -[0m
+
+2019-06-22T11:32:22.054Z, 	[0mGET /dashboard [36m304 [0m14.848 ms - -[0m
+
+2019-06-22T11:32:22.071Z, 	[0mGET /stylesheets/style.css [36m304 [0m2.764 ms - -[0m
+
+2019-06-22T11:32:22.074Z, 	[0mGET /javascripts/dashboard.js [36m304 [0m1.099 ms - -[0m
+
+2019-06-22T11:32:22.075Z, 	[0mGET /javascripts/country.js [36m304 [0m1.665 ms - -[0m
+
+2019-06-22T11:32:22.165Z, 	[0mGET /favicon.ico [31m500 [0m2.834 ms - 2945[0m
+
+2019-06-22T11:32:22.630Z, 	[0mGET /users [36m304 [0m483.162 ms - -[0m
+
+2019-06-22T11:32:22.641Z, 	[0mGET /questions [36m304 [0m493.519 ms - -[0m
+
+2019-06-22T11:32:22.990Z, 	[0mGET /results [36m304 [0m843.758 ms - -[0m
+
+2019-06-22T11:32:43.627Z, 	[0mGET /users/vasilevski85@gmail.com [32m200 [0m78.371 ms - 211[0m
+
+2019-06-22T11:32:43.697Z, 	[0mGET /favicon.ico [31m500 [0m2.286 ms - 2945[0m
+
+2019-06-22T11:32:50.075Z, 	[0mGET /users/vasilevski85@gmail [32m200 [0m83.525 ms - 2[0m
+
+2019-06-22T11:32:50.149Z, 	[0mGET /favicon.ico [31m500 [0m1.614 ms - 2945[0m
+

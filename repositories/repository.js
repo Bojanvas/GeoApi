@@ -94,6 +94,16 @@ const repository = {
   },
 
   /*
+  *
+  *
+  * */
+  getUser(email, callback){
+    User.find({ email: email}, (err, user) => {
+      callback(err, user);
+    });
+  },
+
+  /*
   * Get all results from db
   * @arg1: completeCallback
   */

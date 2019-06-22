@@ -37,20 +37,17 @@ router.get('/auth', auth.verifyToken, (req, res, next) => {
   });
 });
 
-/* Update token */
-router.put('/auth', auth.verifyToken, (req, res, next) => {
-  createJWT(req, (err, token) => {
+/* Get user by mail */
+router.get('/:email', auth.verifyToken, (req, res, next) => {
+  repository.getUser(req.params.email, (err, user) => {
     if(err) return console.log(err);
-      res.status(200).json({
-        message: 'Updated token successful',
-        token: token
-      });
+    res.status(200).json(user);
   });
 });
 
 //JWT for user
 function createJWT(req, callback){
-  jwt.sign({ id: req.user.id, name: req.user.name, email: req.user.email, country: req.user.country}, process.env.JWT_KEY, { expiresIn: '1h' }, (err, token) => {
+  jwt.sign({ id: req.user.id, name: req.user.name, email: req.user.email}, process.env.JWT_KEY, { expiresIn: '1h' }, (err, token) => {
     if(err) return console.log(err);
     callback(err, token);
   });
