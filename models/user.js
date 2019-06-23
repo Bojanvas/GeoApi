@@ -12,6 +12,7 @@ const UserSchema = new Schema({
   is_premium : { type: Boolean, default: false },
   is_guest : { type: Boolean, default: false },
   experiance:  { type: Number, default: 0 },
+  level: { type: Number, default: 0 },
   country : { type: String, default: 'Unknown' },
 });
 
