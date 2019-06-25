@@ -4,7 +4,9 @@ $(document).ready(function(){
     
     $('#add-country').submit((e) => {
         e.preventDefault();
-        var formData = new FormData($(this)[0]);
+        // var formData = new FormData($(this)[0]);
+        var form = document.getElementById('add-country');
+        var formData = new FormData(form);
         $('.spinner-border').removeClass('d-none').addClass('d-block');
         addCountryAjax(formData);
     });

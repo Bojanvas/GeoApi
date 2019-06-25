@@ -6,6 +6,8 @@ const cloudinary = require('cloudinary').v2;
 const cloudinaryConf = require('../config/cloudinary');
 const countryUtils = require('../utils/countryUtils');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require("dotenv").config();
 
 const repository = {
 
@@ -22,11 +24,11 @@ const repository = {
 
   /*
   * Get all countries from db
-  * arg1: complete callback
+  * arg1: callback
   */
-  getAllCountries(completeCallback){
+  getAllCountries(callback){
     Country.find({}, (err, countries) => {
-      completeCallback(err, countries);
+      callback(err, countries);
     });
   },
 
@@ -37,13 +39,13 @@ const repository = {
   * @arg3: country points
   * @arg4: path of the flag image
   * @arg5: path of the country image
-  * @arg6: complete callback
+  * @arg6: callback
   */
-  saveCountry(name, capital, points, flagImgPath, countryImgPath, completeCallback) {
+  saveCountry(name, capital, points, flagImgPath, countryImgPath, callback) {
     cloudinary.uploader.upload(flagImgPath, {width: 300, height: 200, crop: "fill"}, (err, resultFlagImg) => {
-      if(err) return console.log(err);
+      if(err) return callback(err, undefined);
       cloudinary.uploader.upload(countryImgPath, {width: 300, height: 200, crop: "fill"}, (err, resultCountryImg) => {
-        if(err) return console.log(err);
+        if(err) return callback(err, undefined);
         
         const country = new Country({
           name: name,
@@ -59,8 +61,9 @@ const repository = {
           if(err){
             deleteImg(country.flag_file_name);
             deleteImg(country.country_file_name);
+            callback(err, undefined);
           }
-          completeCallback(err, country);
+          callback(undefined, country);
         });
       });
     });
@@ -69,27 +72,29 @@ const repository = {
   /*
   * Delete country by id from db
   * @arg1: id of the country
-  * @arg2: complete callback
+  * @arg2: callback
   */
-  deleteCountry(id, completeCallback){
+  deleteCountry(id, callback){
     Country.findOne({ _id: id}, (err, country) => {
         if(err) return console.log(err);
         deleteImg(country.flag_file_name);
         deleteImg(country.country_file_name);
       }).then(() => {
         Country.deleteOne({_id: id}, (err) => {
-            completeCallback(err);
+          if(err) return callback(err, undefined);
+          callback(err);
         });
     });
   },
 
   /*
   * Get all users from db
-  * @arg1: completeCallback
+  * @arg1: callback
   */
-  getAllUsers(completeCallback){
+  getAllUsers(callback){
     User.find({}, (err, users) => {
-      completeCallback(err, users);
+      if(err) return callback(err, undefined);
+      callback(undefined, users);
     });
   },
 
@@ -99,39 +104,41 @@ const repository = {
   * */
   getUser(email, callback){
     User.find({ email: email}, (err, user) => {
-      callback(err, user);
+      if(err) return callback(err, undefined);
+      callback(undefined, user);
     });
   },
 
   /*
   * Get all results from db
-  * @arg1: completeCallback
+  * @arg1: callback
   */
-  getAllResults(completeCallback){
+  getAllResults(callback){
     Result.find({}).populate('user').exec((err, results) => {
-      completeCallback(err, results);
+      if(err) return callback(err, undefined);
+      callback(undefined, results);
     });
   },
 
   /*
   * Get results from db for user by id
   * @arg1: id of the user
-  * @arg2: completeCallback
+  * @arg2: callback
   */
-  getResultsByUserId(userId, completeCallback){
+  getResultsByUserId(userId, callback){
     Result.find({ userId: userId}, (err, results) => {
-      completeCallback(err, results);
+      if(err) return callback(err, undefined);
+      callback(undefined, results);
     });
   },
 
   /*
   * Get results from db for selected country
   */
-  getResultsByCountry(country, completeCallback){
+  getResultsByCountry(country, callback){
     User.find({ country: country}, (err, users) => {
-      if(err) console.log(err);
-      
-      completeCallback(err, users); //tmp
+      if(err) return callback(err, undefined);
+      callback(undefined, users); //tmp
     });
   },
 
@@ -139,44 +146,45 @@ const repository = {
   * Save result in db
   * @arg1: id of the user
   * @arg2: points of the user
-  * @arg3: completeCallback
+  * @arg3: callback
   */
-  saveResult(userId, points, time, completeCallback){
+  saveResult(userId, points, time, callback){
     User.findById(userId, (err, user) => {
-      if(err) console.log(err);
+      if(err) callback(err, undefined);
       const result = new Result({
         user: user,
         points: points
       });
   
     result.save((err, result) => {
-      completeCallback(err, result);
+      if(err) return callback(err, undefined);
+      callback(undefined, result);
       });
     });
   },
 
-  deleteResult(id, completeCallback){
+  deleteResult(id, callback){
     Result.deleteOne({_id: id}, (err) => {
-      completeCallback(err);
+      callback(err);
     });
   },
 
-  getUniqueQuestions(completeCallback){
+  getUniqueQuestions(callback){
     Country.find({}, (err, countries) => {
-      if(err) return console.log(err);
+      if(err) return callback(err, undefined);
       var randomCountries = countryUtils.getRandom(countries, 5);
-      completeCallback(err, randomCountries);
+      callback(undefined, randomCountries);
     }).lean();
   },
 
   createAdmin(email, password, callback){
     Admin.findOne({email: email}, (err, admin) => {
-      if(err) return console.log(err);
+      if(err) return callback(err, undefined);
       if(admin != null) {
-        return callback(err, false);
+        return callback(err, undefined);
       }else{
         bcrypt.hash(password, 10, (err, hash) => {
-          if(err) return console.log(err);
+          if(err) return callback(err, undefined);
   
           const admin = new Admin({
             email: email,
@@ -184,10 +192,33 @@ const repository = {
           });
       
           admin.save((err, admin) => {
-            callback(err, admin);
+            if(err) return callback(err, undefined);
+            callback(undefined, admin);
           });
         });
       }
+    });
+  },
+
+  loginAdmin(req, callback){
+    Admin.findOne({ email: req.body.email }, (err, admin) => {
+      if (err) {
+          callback(err, undefined);
+      }
+      if (admin == null) return callback('Admin not found', undefined);
+      bcrypt.compare(req.body.password, admin.password, (err, isMatch) => {
+          if(err) callback(err, undefined);
+          if(isMatch){
+              //accure pass
+              createJWT(admin, (err, token) => {
+                if(err) return callback(err, undefined);
+                callback(undefined, token);
+              });
+          }else{
+              //wrong pass
+              callback('Wrong password', undefined);
+          }
+      });
     });
   }
 }
@@ -202,15 +233,23 @@ function uploadImg(img){
     });
   }
   
-  /*
-  * @arg image name without .extension
-  * @return result
-  */
-  function deleteImg(img){
-    cloudinary.uploader.destroy(img.split('.')[0], (err, result) => {
-      if(err) return console.log(err);
-      return result;
-    });
-  }
+/*
+* @arg image name without .extension
+* @return result
+*/
+function deleteImg(img){
+  cloudinary.uploader.destroy(img.split('.')[0], (err, result) => {
+    if(err) return console.log(err);
+    return result;
+  });
+}
+
+//JWT for admin
+function createJWT(admin, callback){
+  jwt.sign({ id: admin.id, email: admin.email}, process.env.JWT_KEY_ADMIN, { expiresIn: '7d' }, (err, token) => {
+    if(err) return console.log(err);
+    callback(err, token);
+  });
+}
 
 module.exports = repository;

@@ -4,9 +4,6 @@ const auth = require('../../middlewares/auth');
 const repository = require('../../repositories/repository');
 const passportConf = require('../../config/passport');
 const fileUtils = require('../../utils/fileUtils');
-const Admin = require('../../models/admin');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const multer  = require('multer');
 const upload = multer();
 const router = express.Router();
@@ -51,27 +48,16 @@ router.get('/login', (req, res, next) => {
 
 //Login
 router.post('/login', upload.none(), (req, res, next) => {
-  Admin.findOne({ email: req.body.email }, (err, admin) => {
-    if (err) {
-        console.log(err);
-        return res.status(500);
+  repository.loginAdmin(req, (err, token) => {
+    if(err === 'Wrong password' || err === 'Admin not found'){
+      console.log(err);
+      return res.status(403).end();
+    }else if(err){
+      return console.log(err);
     }
-    if (admin == null) return res.status(403);
-    bcrypt.compare(req.body.password, admin.password, (err, isMatch) => {
-        if(err) return console.log(err);
-        if(isMatch){
-            //accure pass
-            createJWT(admin, (err, token) => {
-              if(err) return console.log(err);
-              res.status(200).json({
-                message: 'Updated token successful',
-                token: token
-              });
-            });
-        }else{
-            //wrong pass
-            res.redirect('/dashboard/login');
-        }
+    res.status(200).json({
+      message: 'Updated token successful',
+      token: token
     });
   });
 });
@@ -84,13 +70,5 @@ router.post('/login', upload.none(), (req, res, next) => {
 //       res.status(200).json(admin);
 //   });
 // });
-
-//JWT for admin
-function createJWT(admin, callback){
-  jwt.sign({ id: admin.id, email: admin.email}, process.env.JWT_KEY_ADMIN, { expiresIn: '7d' }, (err, token) => {
-    if(err) return console.log(err);
-    callback(err, token);
-  });
-}
 
 module.exports = router;
