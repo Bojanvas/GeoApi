@@ -14,14 +14,16 @@ router.get('/auth/google/callback', passport.authenticate('google', { failureRed
   //Check for old token. If have send it to verification, if not create new token
   const token = req.headers['jwt'];
   if(token){
-    res.redirect('/users/auth');
+    res.redirect('myapp:///?token=' + token);
+    // res.redirect('/users/auth');
   }else{
     createJWT(req, (err, token) => {
       if(err) return console.log(err);
-      res.status(200).json({
-        message: 'Updated token successful',
-        token: token
-      });
+       res.redirect('myapp://?token=' + token);
+      // res.status(200).json({
+      //   message: 'Updated token successful',
+      //   token: token
+      // });
     });
   }
 });
