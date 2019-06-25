@@ -12,6 +12,7 @@ const countryUtils = {
             result[n] = arr[x in taken ? taken[x] : x];
             taken[x] = --len in taken ? taken[len] : len;
             result[n].type = type = getRandomType();
+            result[n].question = questionTemplate(type, result[n].name);
             result[n].answers = getRandomAnswers(arr, x, type);
 
         }
@@ -25,6 +26,19 @@ function getRandomType() {
     var type = types[Math.floor(Math.random()*types.length)];
     return type;
 }
+
+const questionTemplate = (type = '', name = '') => {
+    var question = '';
+    if (type == 'country') {
+        return 'Guess the country ?';
+    } else if (type == 'city') {
+        return 'Whats the capital of'+name+'?';
+    } else if (type == 'flag') {
+        return 'This flag belongs tocountry ?';
+    }
+
+    return question;
+};
 
 function getRandomAnswers(questions = [], index = 0, type='') {
 
