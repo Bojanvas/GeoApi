@@ -141,7 +141,7 @@ const repository = {
   * @arg2: points of the user
   * @arg3: completeCallback
   */
-  saveResult(userId, points, completeCallback){
+  saveResult(userId, points, time, completeCallback){
     User.findById(userId, (err, user) => {
       if(err) console.log(err);
       const result = new Result({

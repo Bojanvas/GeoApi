@@ -28,7 +28,7 @@ router.get('/country', (req, res, next) => {
 
 /* POST result */
 router.post('/', (req, res, next) => {
-  repository.saveResult(req.headers['userid'], req.headers['points'], (err, result) => {
+  repository.saveResult(req.headers['userid'], req.headers['points'], re.headers['time'], (err, result) => {
     if(err) console.log(err);
     res.status(200).json(result);
   });
