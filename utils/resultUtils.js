@@ -2,7 +2,7 @@ const resultsUtils = {
 
     calculateResult(points, time){
 
-        return undefined;
+        return points * time / 10;
     }
 }
 
