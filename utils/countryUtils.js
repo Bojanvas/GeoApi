@@ -32,9 +32,9 @@ const questionTemplate = (type = '', name = '') => {
     if (type == 'country') {
         return 'Guess the country ?';
     } else if (type == 'city') {
-        return 'Whats the capital of'+name+'?';
+        return 'Whats the capital of '+name+'?';
     } else if (type == 'flag') {
-        return 'This flag belongs tocountry ?';
+        return 'This flag belongs to country ?';
     }
 
     return question;
@@ -43,11 +43,19 @@ const questionTemplate = (type = '', name = '') => {
 function getRandomAnswers(questions = [], index = 0, type='') {
 
     if (questions.length > 0) {
-        var answersOptions = new Array(3),
+        var answersOptions = new Array(4),
         len = questions.length,
         takenAnswers = new Array(len);
+
+        // add corrcet answer
+        if (type == 'city') {
+            answersOptions[0]= questions[index].capital;
+        } else if (type == 'country' || type == 'flag') {
+            answersOptions[0] = questions[index].name;
+        }
+
         takenAnswers[index] = --len;
-        for (let i = 0; i< 3; i++) {
+        for (let i = 1; i < 4; i++) {
             var x = Math.floor(Math.random() * len);
             
             if (type == 'city') {
@@ -58,8 +66,18 @@ function getRandomAnswers(questions = [], index = 0, type='') {
                 takenAnswers[x] = --len in takenAnswers ? takenAnswers[len] : len;
             }
         }
+        shuffleAnswers(answersOptions);
         return JSON.stringify(answersOptions);
     } 
 }
+
+function shuffleAnswers(questions) {
+    for(var i = questions.length; i-- > 1; ) {
+      var j = Math.floor(Math.random() * i);
+      var tmp = questions[i];
+      questions[i] = questions[j];
+      questions[j] = tmp;
+    }
+  }
 
 module.exports = countryUtils;
