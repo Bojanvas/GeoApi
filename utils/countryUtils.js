@@ -12,8 +12,9 @@ const countryUtils = {
             result[n] = arr[x in taken ? taken[x] : x];
             taken[x] = --len in taken ? taken[len] : len;
             result[n].type = type = getRandomType();
+            result[n].correctAnswer = correct = addCorrectAnswer(arr, x, type);
             result[n].question = questionTemplate(type, result[n].name);
-            result[n].answers = getRandomAnswers(arr, x, type);
+            result[n].answers = getRandomAnswers(arr, x, type, correct);
 
         }
         return result;
@@ -40,19 +41,13 @@ const questionTemplate = (type = '', name = '') => {
     return question;
 };
 
-function getRandomAnswers(questions = [], index = 0, type='') {
+function getRandomAnswers(questions = [], index = 0, type='', correct) {
 
     if (questions.length > 0) {
         var answersOptions = new Array(4),
         len = questions.length,
         takenAnswers = new Array(len);
-
-        // add corrcet answer
-        if (type == 'city') {
-            answersOptions[0]= questions[index].capital;
-        } else if (type == 'country' || type == 'flag') {
-            answersOptions[0] = questions[index].name;
-        }
+        answersOptions[0]= correct;
 
         takenAnswers[index] = --len;
         for (let i = 1; i < 4; i++) {
@@ -69,6 +64,15 @@ function getRandomAnswers(questions = [], index = 0, type='') {
         shuffleAnswers(answersOptions);
         return JSON.stringify(answersOptions);
     } 
+}
+
+function addCorrectAnswer(questions = [], index = 0, type='') {
+     // add corrcet answer
+     if (type == 'city') {
+        return questions[index].capital;
+    } else if (type == 'country' || type == 'flag') {
+        return questions[index].name;
+    }
 }
 
 function shuffleAnswers(questions) {
