@@ -6,7 +6,7 @@ const ResultSchema = new Schema({
     id: ObjectId,
     user: { type: Schema.Types.ObjectId, ref: 'User'},
     date: { type: Date, default: Date.now },
-    points: String
+    score: String
 });
 
 var Result = mongoose.model('Result', ResultSchema);

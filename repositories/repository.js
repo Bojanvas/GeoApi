@@ -5,6 +5,7 @@ const Result = require('../models/result');
 const cloudinary = require('cloudinary').v2;
 const cloudinaryConf = require('../config/cloudinary');
 const countryUtils = require('../utils/countryUtils');
+const resultUtils = require('../utils/resultUtils');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require("dotenv").config();
@@ -153,7 +154,7 @@ const repository = {
       if(err) callback(err, undefined);
       const result = new Result({
         user: user,
-        points: points
+        score: resultUtils.calculateResult()
       });
   
     result.save((err, result) => {
