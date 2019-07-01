@@ -28,15 +28,15 @@ router.get('/country', (req, res, next) => {
 
 /* POST result */
 router.post('/', (req, res, next) => {
-  repository.saveResult(req.headers['userid'], req.headers['points'], re.headers['time'], (err, result) => {
+  repository.saveResult(req.query.userid, req.query.points, req.query.time, (err, result) => {
     if(err) console.log(err);
     res.status(200).json(result);
   });
 });
 
 /* DELETE result */
-router.delete('/', (req, res, next) => {
-  repository.deleteResult(req.headers['id'], (err) => {
+router.delete('/:resultid', (req, res, next) => {
+  repository.deleteResult(req.query.resultid, (err) => {
     if(err) console.log(err);
     res.status(200).json({
       message: "Result Deleted"

@@ -218,8 +218,8 @@ function addResultsToList(results){
       const tdDate = document.createElement('td');
       tdDate.innerText = results[i].date;
 
-      const tdPoints = document.createElement('td');
-      tdPoints.innerText = results[i].points;
+      const tdScore = document.createElement('td');
+      tdScore.innerText = results[i].score;
 
       const tdDel = document.createElement('td');
       const spanDel = document.createElement('span');
@@ -232,7 +232,7 @@ function addResultsToList(results){
       tr.appendChild(tdName);
       tr.appendChild(tdCountry);
       tr.appendChild(tdDate);
-      tr.appendChild(tdPoints);
+      tr.appendChild(tdScore);
 
       spanDel.appendChild(imgDel);
       tdDel.appendChild(spanDel);

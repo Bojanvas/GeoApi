@@ -154,7 +154,7 @@ const repository = {
       if(err) callback(err, undefined);
       const result = new Result({
         user: user,
-        score: resultUtils.calculateResult()
+        score: resultUtils.calculateResult(points, time)
       });
   
     result.save((err, result) => {

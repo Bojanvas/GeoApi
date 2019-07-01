@@ -9,7 +9,7 @@ require("dotenv").config();
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://geographyapi.herokuapp.com/users/auth/google/callback"
+    callbackURL: process.env.ADRESS + "/users/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
     User.findOne({ email: profile.emails[0].value }, (err, existingUser) => {
         if(err) return console.log(err);
@@ -37,7 +37,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "https://geographyapi.herokuapp.com/users/auth/facebook/callback"
+    callbackURL: process.env.ADRESS + "/users/auth/facebook/callback"
 }, (accessToken, refreshToken, profile, done) => {
 
 }
