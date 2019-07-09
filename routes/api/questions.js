@@ -9,7 +9,7 @@ var router = express.Router();
 /* GET all countries. */
 router.get('/', (req, res, next) => {
   repository.getAllCountries((err, countries) => {
-    if (err) console.log(err);
+    if (err) return console.log(err);
     res.status(200).json(countries);
   });
 });

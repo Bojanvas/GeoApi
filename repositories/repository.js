@@ -126,8 +126,20 @@ const repository = {
   * @arg1: id of the user
   * @arg2: callback
   */
-  getResultsByUserId(userId, callback){
-    Result.find({ userId: userId}, (err, results) => {
+  getResultsByUserId(userid, callback){
+    Result.find({}).populate({path: 'user', match: {id: userid}}).exec((err, results) => {
+      if(err) return callback(err, undefined);
+      callback(undefined, results);
+    });
+  },
+
+  /*
+  * Get results from db for user by email
+  * @arg1: email of the user
+  * @arg2: callback
+  */
+  getResultsByEmail(email, callback){
+    Result.find({}).populate({path: 'user', match: { email: email}}).exec((err, results) => {
       if(err) return callback(err, undefined);
       callback(undefined, results);
     });
@@ -137,7 +149,7 @@ const repository = {
   * Get results from db for selected country
   */
   getResultsByCountry(country, callback){
-    User.find({ country: country}, (err, users) => {
+    Result.find({ country: country}, (err, users) => {
       if(err) return callback(err, undefined);
       callback(undefined, users); //tmp
     });
@@ -149,19 +161,21 @@ const repository = {
   * @arg2: points of the user
   * @arg3: callback
   */
-  saveResult(userId, points, time, callback){
-    User.findById(userId, (err, user) => {
+  saveResult(userid, points, time, callback){
+    User.findById(userid, (err, user) => {
       if(err) callback(err, undefined);
+      resultUtils.calculateResult(points, time, (score) => {
       const result = new Result({
         user: user,
-        score: resultUtils.calculateResult(points, time)
+        score: score
       });
-  
-    result.save((err, result) => {
-      if(err) return callback(err, undefined);
-      callback(undefined, result);
+      result.save((err, result) => {
+        if(err) return callback(err, undefined);
+        callback(undefined, result);
+        });
       });
     });
+
   },
 
   deleteResult(id, callback){

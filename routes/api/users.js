@@ -57,14 +57,14 @@ function createJWT(req, callback){
 
 router.get('/', (req, res, next) => {
   repository.getAllUsers((err, users) => {
-    if(err) console.log(err);
+    if(err) return console.log(err);
     res.status(200).json(users);
   });
 });
 
 router.put('/', (req, res, next) => {
   repository.editUser(req.body, (err, user) => {
-    if(err) console.log(err);
+    if(err) return console.log(err);
     res.status(200).json(user);
   });
 });

@@ -2,42 +2,56 @@ var express = require('express');
 var router = express.Router();
 const repository = require('../../repositories/repository');
 
+// /* GET results */
+// router.get('/', (req, res, next) => {
+//   repository.getAllResults((err, results) => {
+//     if(err) return console.log(err);
+//     res.status(200).json(results);
+//   });
+// });
+
 /* GET results */
 router.get('/', (req, res, next) => {
-  repository.getAllResults((err, results) => {
-    if(err) console.log(err);
-    res.status(200).json(results);
-  });
-});
-
-/* GET results by user by id */
-router.get('/userId', (req, res, next) => {
-  repository.getResultsByUserId(req.query.userId, (err, results) => {
-    if (err) console.log(err);
-    res.status(200).json(results);
-  });
+  if(req.query.userid){
+    repository.getResultsByUserId(req.query.userid, (err, results) => {
+      if (err) return console.log(err);
+      res.status(200).json(results);
+    });
+  }else if(req.query.email){
+    repository.getResultsByEmail(req.query.email, (err, results) => {
+      if (err) return console.log(err);
+      res.status(200).json(results);
+    });
+  }else{
+    repository.getAllResults((err, results) => {
+      if(err) return console.log(err);
+      res.status(200).json(results);
+    });
+  }
 });
 
 /* GET results by country */
-router.get('/country', (req, res, next) => {
-  repository.getResultsByCountry(req.query.country, (err, results) => {
-    if (err) console.log(err);
-    res.status(200).json(results);
-  });
-});
+// router.get('/', (req, res, next) => {
+//   repository.getResultsByCountry(req.query.country, (err, results) => {
+//     if (err) return console.log(err);
+//     res.status(200).json(results);
+//   });
+// });
 
 /* POST result */
 router.post('/', (req, res, next) => {
+  if(!req.query.userid || !req.query.points || !req.query.time) return res.status(400).json({error: 'Missing params'});
   repository.saveResult(req.query.userid, req.query.points, req.query.time, (err, result) => {
-    if(err) console.log(err);
+    if(err) return console.log(err);
     res.status(200).json(result);
   });
 });
 
 /* DELETE result */
-router.delete('/:resultid', (req, res, next) => {
+router.delete('/', (req, res, next) => {
+  if(!req.query.resultid) return res.status(400).json({error: 'Missing params'});
   repository.deleteResult(req.query.resultid, (err) => {
-    if(err) console.log(err);
+    if(err) return console.log(err);
     res.status(200).json({
       message: "Result Deleted"
     });

@@ -1,8 +1,8 @@
 const resultsUtils = {
 
-    calculateResult(points, time){
+    calculateResult(points, time, callback){
 
-        return points * time / 10;
+        callback(points * time / 10)
     }
 }
 
