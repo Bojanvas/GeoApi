@@ -156,12 +156,13 @@ const repository = {
   },
 
   /*
-  * Save result in db
+  * Save result by user id in db
   * @arg1: id of the user
   * @arg2: points of the user
-  * @arg3: callback
+  * @arg3: time of the user
+  * @arg4: callback
   */
-  saveResult(userid, points, time, callback){
+  saveResultById(userid, points, time, callback){
     User.findById(userid, (err, user) => {
       if(err) callback(err, undefined);
       resultUtils.calculateResult(points, time, (score) => {
@@ -177,6 +178,42 @@ const repository = {
     });
 
   },
+
+  /*
+  * Save result by user email in db
+  * @arg1: email of the user
+  * @arg2: points of the user
+  * @arg3: time of the user
+  * @arg4: callback
+  */
+ saveResultByEmail(email, points, time, callback){
+  User.find({ email: email }, (err, user) => {
+    if(err) callback(err, undefined);
+    resultUtils.calculateResult(points, time, (score) => {
+    const result = new Result({
+      user: user,
+      score: score
+    });
+    result.save((err, result) => {
+      if(err) return callback(err, undefined);
+      callback(undefined, result);
+      });
+    });
+  });
+
+},
+
+  /*
+  * Calculate result for guest
+  * @arg1: points of the user
+  * @arg2: callback
+  */
+ calculateResultForGuest(points, time, callback){
+  resultUtils.calculateResult(points, time, (score) => {
+    callback(undefined, score)
+  });
+
+},
 
   deleteResult(id, callback){
     Result.deleteOne({_id: id}, (err) => {

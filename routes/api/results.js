@@ -40,11 +40,26 @@ router.get('/', (req, res, next) => {
 
 /* POST result */
 router.post('/', (req, res, next) => {
-  if(!req.query.userid || !req.query.points || !req.query.time) return res.status(400).json({error: 'Missing params'});
-  repository.saveResult(req.query.userid, req.query.points, req.query.time, (err, result) => {
-    if(err) return console.log(err);
-    res.status(200).json(result);
-  });
+  if(!req.body.points || !req.body.time) return res.status(400).json({error: 'Missing params'});
+  if(req.body.email){
+    //by email
+    repository.saveResultByEmail(req.body.email, req.body.points, req.body.time, (err, result) => {
+      if(err) return console.log(err);
+      res.status(200).json(result);
+    });
+  }else if(req.body.userid){
+    //by id
+    repository.saveResultById(req.body.userid, req.body.points, req.body.time, (err, result) => {
+      if(err) return console.log(err);
+      res.status(200).json(result);
+    });
+  }else{
+    //as guest
+    repository.calculateResultForGuest(req.body.points, req.body.time, (err, result) => {
+      if(err) return console.log(err);
+      res.status(200).json(result)
+    });
+  }
 });
 
 /* DELETE result */
