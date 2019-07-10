@@ -194,6 +194,7 @@ const repository = {
       user: user,
       score: score
     });
+    console.log(result);
     result.save((err, result) => {
       if(err) return callback(err, undefined);
       callback(undefined, result);
