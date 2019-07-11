@@ -39,9 +39,24 @@ router.get('/auth', auth.verifyToken, (req, res, next) => {
   });
 });
 
-/* Get user by mail */
-router.get('/:email', auth.verifyToken, (req, res, next) => {
-  repository.getUser(req.params.email, (err, user) => {
+/* GET */
+router.get('/', (req, res, next) => {
+  if(req.query.email){
+    repository.getUser(req.query.email, (err, user) => {
+      if(err) return console.log(err);
+      res.status(200).json(user);
+    });
+  }else{
+    repository.getAllUsers((err, users) => {
+      if(err) return console.log(err);
+      res.status(200).json(users);
+    });
+  }
+});
+
+/* PUT */
+router.put('/', (req, res, next) => {
+  repository.editUser(req.body, (err, user) => {
     if(err) return console.log(err);
     res.status(200).json(user);
   });
@@ -54,19 +69,5 @@ function createJWT(req, callback){
     callback(err, token);
   });
 }
-
-router.get('/', (req, res, next) => {
-  repository.getAllUsers((err, users) => {
-    if(err) return console.log(err);
-    res.status(200).json(users);
-  });
-});
-
-router.put('/', (req, res, next) => {
-  repository.editUser(req.body, (err, user) => {
-    if(err) return console.log(err);
-    res.status(200).json(user);
-  });
-});
 
 module.exports = router;
