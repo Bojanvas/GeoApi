@@ -2,12 +2,13 @@ var express = require('express');
 const repository = require('../../repositories/repository');
 var multer  = require('multer');
 var upload = multer({ dest: 'public/uploads/countries/' });
+var auth = require('../../middlewares/auth');
 require("dotenv").config();
 
 var router = express.Router();
 
 /* GET all countries. */
-router.get('/', (req, res, next) => {
+router.get('/', auth.verifyTokenAdmin, (req, res, next) => {
   repository.getAllCountries((err, countries) => {
     if (err) return console.log(err);
     res.status(200).json(countries);
@@ -15,7 +16,7 @@ router.get('/', (req, res, next) => {
 });
 
 /* POST country */
-router.post('/', upload.fields([{ name: 'flag_file', maxCount: 1 }, { name: 'country_file', maxCount: 1 }]), (req, res, next) => {
+router.post('/', auth.verifyTokenAdmin, upload.fields([{ name: 'flag_file', maxCount: 1 }, { name: 'country_file', maxCount: 1 }]), (req, res, next) => {
   repository.saveCountry(req.body.country_name, req.body.capital, req.body.points, req.files.flag_file[0].path, req.files.country_file[0].path, (err, country) => {
       if (err) return console.error(err);
       res.status(200).json(country);
@@ -23,7 +24,7 @@ router.post('/', upload.fields([{ name: 'flag_file', maxCount: 1 }, { name: 'cou
 });
 
 /* DELETE country by id */
-router.delete('/', (req, res, next) => {
+router.delete('/', auth.verifyTokenAdmin, (req, res, next) => {
   repository.deleteCountry(req.headers['id'], (err) => {
     if(err) return console.log(err);
     res.status(200).json({

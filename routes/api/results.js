@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var auth = require('../../middlewares/auth');
 const repository = require('../../repositories/repository');
 
 /* GET results */
-router.get('/', (req, res, next) => {
+router.get('/', auth.verifyToken, (req, res, next) => {
   if(req.query.userid){
     repository.getResultsByUserId(req.query.userid, (err, results) => {
       if (err) return console.log(err);
@@ -23,7 +24,7 @@ router.get('/', (req, res, next) => {
 });
 
 /* POST result */
-router.post('/', (req, res, next) => {
+router.post('/', auth.verifyToken, (req, res, next) => {
   if(!req.body.points || !req.body.time) return res.status(400).json({error: 'Missing params'});
   if(req.body.email){
     //by email
@@ -49,7 +50,7 @@ router.post('/guest', (req, res, next) => {
 });
 
 /* DELETE result */
-router.delete('/', (req, res, next) => {
+router.delete('/', auth.verifyTokenAdmin, (req, res, next) => {
   if(!req.query.resultid) return res.status(400).json({error: 'Missing params'});
   repository.deleteResult(req.query.resultid, (err) => {
     if(err) return console.log(err);
