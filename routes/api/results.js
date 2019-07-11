@@ -4,7 +4,7 @@ var auth = require('../../middlewares/auth');
 const repository = require('../../repositories/repository');
 
 /* GET results */
-router.get('/', auth.verifyToken, (req, res, next) => {
+router.get('/', (req, res, next) => {
   if(req.query.userid){
     repository.getResultsByUserId(req.query.userid, (err, results) => {
       if (err) return console.log(err);
