@@ -2,14 +2,6 @@ var express = require('express');
 var router = express.Router();
 const repository = require('../../repositories/repository');
 
-// /* GET results */
-// router.get('/', (req, res, next) => {
-//   repository.getAllResults((err, results) => {
-//     if(err) return console.log(err);
-//     res.status(200).json(results);
-//   });
-// });
-
 /* GET results */
 router.get('/', (req, res, next) => {
   if(req.query.userid){
@@ -30,14 +22,6 @@ router.get('/', (req, res, next) => {
   }
 });
 
-/* GET results by country */
-// router.get('/', (req, res, next) => {
-//   repository.getResultsByCountry(req.query.country, (err, results) => {
-//     if (err) return console.log(err);
-//     res.status(200).json(results);
-//   });
-// });
-
 /* POST result */
 router.post('/', (req, res, next) => {
   if(!req.body.points || !req.body.time) return res.status(400).json({error: 'Missing params'});
@@ -53,13 +37,15 @@ router.post('/', (req, res, next) => {
       if(err) return console.log(err);
       res.status(200).json(result);
     });
-  }else{
-    //as guest
+  }
+});
+
+/* POST(calculate) results as guest */
+router.post('/guest', (req, res, next) => {
     repository.calculateResultForGuest(req.body.points, req.body.time, (err, result) => {
       if(err) return console.log(err);
       res.status(200).json(result)
     });
-  }
 });
 
 /* DELETE result */
