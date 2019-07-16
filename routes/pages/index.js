@@ -37,7 +37,6 @@ router.get('/documentation', auth.verifyTokenAdmin, (req, res, next) => {
 /* GET server log page */
 router.get('/log', auth.verifyTokenAdmin, (req, res, next) => {
   fileUtils.processLineByLine('logs/app.log', (lines) => {
-    console.log(lines);
     res.render('dashboard', { title: 'Dashboard | Log', page: 'inc/_log', data: lines});
   });
 });
@@ -50,10 +49,9 @@ router.get('/login', (req, res, next) => {
 router.post('/login', upload.none(), (req, res, next) => {
   repository.loginAdmin(req, (err, token) => {
     if(err === 'Wrong password' || err === 'Admin not found'){
-      console.log(err);
       return res.status(403).end();
     }else if(err){
-      return console.log(err);
+      return res.status(500).send(err);
     }
     res.status(200).json({
       message: 'Updated token successful',

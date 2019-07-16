@@ -8649,3 +8649,11 @@
 
 2019-07-11T17:03:46.808Z, 	[0mGET /results [32m200 [0m197.722 ms - 3992[0m
 
+2019-07-11T17:05:11.266Z, 	[0mGET /dashboard [36m304 [0m14.040 ms - -[0m
+
+2019-07-11T17:05:11.297Z, 	[0mGET /stylesheets/style.css [36m304 [0m2.616 ms - -[0m
+
+2019-07-11T17:05:11.299Z, 	[0mGET /javascripts/dashboard.js [36m304 [0m0.634 ms - -[0m
+
+2019-07-11T17:05:11.472Z, 	[0mGET /favicon.ico [31m500 [0m3.013 ms - 2945[0m
+

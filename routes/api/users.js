@@ -18,7 +18,7 @@ router.get('/auth/google/callback', passport.authenticate('google', { failureRed
     // res.redirect('/users/auth');
   }else{
     createJWT(req, (err, token) => {
-      if(err) return console.log(err);
+      if(err) return res.status(500).send(err);
        res.redirect('http://192.168.1.103:19006/?token=' + token);
       // res.status(200).json({
       //   message: 'Updated token successful',
@@ -43,12 +43,12 @@ router.get('/auth', auth.verifyToken, (req, res, next) => {
 router.get('/', (req, res, next) => {
   if(req.query.email){
     repository.getUser(req.query.email, (err, user) => {
-      if(err) return console.log(err);
+      if(err) return res.status(500).send(err);
       res.status(200).json(user);
     });
   }else{
     repository.getAllUsers((err, users) => {
-      if(err) return console.log(err);
+      if(err) return res.status(500).send(err);
       res.status(200).json(users);
     });
   }
@@ -57,7 +57,7 @@ router.get('/', (req, res, next) => {
 /* PUT */
 router.put('/', (req, res, next) => {
   repository.editUser(req.body, (err, user) => {
-    if(err) return console.log(err);
+    if(err) return res.status(500).send(err);
     res.status(200).json(user);
   });
 });
@@ -65,7 +65,7 @@ router.put('/', (req, res, next) => {
 //JWT for user
 function createJWT(req, callback){
   jwt.sign({ id: req.user.id, name: req.user.name, email: req.user.email}, process.env.JWT_KEY, { expiresIn: '1h' }, (err, token) => {
-    if(err) return console.log(err);
+    if(err) return res.status(500).send(err);
     callback(err, token);
   });
 }

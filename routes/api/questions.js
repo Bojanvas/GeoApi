@@ -10,7 +10,7 @@ var router = express.Router();
 /* GET all countries. */
 router.get('/', auth.verifyTokenAdmin, (req, res, next) => {
   repository.getAllCountries((err, countries) => {
-    if (err) return console.log(err);
+    if (err) return res.status(500).send(err);
     res.status(200).json(countries);
   });
 });
@@ -18,7 +18,7 @@ router.get('/', auth.verifyTokenAdmin, (req, res, next) => {
 /* POST country */
 router.post('/', auth.verifyTokenAdmin, upload.fields([{ name: 'flag_file', maxCount: 1 }, { name: 'country_file', maxCount: 1 }]), (req, res, next) => {
   repository.saveCountry(req.body.country_name, req.body.capital, req.body.points, req.files.flag_file[0].path, req.files.country_file[0].path, (err, country) => {
-      if (err) return console.error(err);
+      if (err) return res.status(500).send(err);
       res.status(200).json(country);
   });
 });
@@ -26,7 +26,7 @@ router.post('/', auth.verifyTokenAdmin, upload.fields([{ name: 'flag_file', maxC
 /* DELETE country by id */
 router.delete('/', auth.verifyTokenAdmin, (req, res, next) => {
   repository.deleteCountry(req.headers['id'], (err) => {
-    if(err) return console.log(err);
+    if(err) return res.status(500).send(err);
     res.status(200).json({
       message: "Country Deleted"
     });
@@ -37,7 +37,7 @@ router.delete('/', auth.verifyTokenAdmin, (req, res, next) => {
 /* GET 20 unique questions */
 router.get('/ranked', (req, res, next) => {
   repository.getUniqueQuestions((err, questions) => {
-    if(err) return console.log(err);
+    if(err) return res.status(500).send(err);
     res.status(200).json(questions);
   });
   // Country.find({}, (err, countries) => {
