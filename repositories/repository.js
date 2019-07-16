@@ -77,7 +77,7 @@ const repository = {
   */
   deleteCountry(id, callback){
     Country.findOne({ _id: id}, (err, country) => {
-        if(err) return console.log(err);
+        if(err) return callback(err, undefined);
         deleteImg(country.flag_file_name);
         deleteImg(country.country_file_name);
       }).then(() => {
@@ -194,7 +194,6 @@ const repository = {
       user: user,
       score: score
     });
-    console.log(result);
     result.save((err, result) => {
       if(err) return callback(err, undefined);
       callback(undefined, result);
@@ -300,8 +299,8 @@ function deleteImg(img){
 //JWT for admin
 function createJWT(admin, callback){
   jwt.sign({ id: admin.id, email: admin.email}, process.env.JWT_KEY_ADMIN, { expiresIn: '7d' }, (err, token) => {
-    if(err) return console.log(err);
-    callback(err, token);
+    if(err) return callback(err, undefined);
+    callback(undefined, token);
   });
 }
 
