@@ -15,6 +15,11 @@ router.get('/', (req, res, next) => {
       if (err) return res.status(500).send(err);
       res.status(200).json(results);
     });
+  }else if(req.query.limit){
+    repository.getResultsByScore(req.query.limit, (err, results) => {
+      if(err) return res.status(500).send(err);
+      res.status(200).json(results);
+    })
   }else{
     repository.getAllResults((err, results) => {
       if(err) return res.status(500).send(err);
