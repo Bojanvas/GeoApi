@@ -122,6 +122,24 @@ const repository = {
   },
 
   /*
+  * Get all results from db by score
+  * @arg1: limit of elements to return
+  * @arg2: callback 
+  */
+ getResultsByScore(limit, callback){
+  if(parseInt(limit) == undefined){
+    Result.find().sort({score: 'desc'}).exec((err, results) => {
+      if(err) return callback(err, undefined);
+      callback(undefined, results);
+    });    
+  }
+  Result.find().sort({score: 'desc'}).limit(parseInt(limit)).exec((err, results) => {
+    if(err) return callback(err, undefined);
+    callback(undefined, results);
+  });
+},
+
+  /*
   * Get results from db for user by id
   * @arg1: id of the user
   * @arg2: callback
